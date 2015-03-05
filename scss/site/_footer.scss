@@ -1,0 +1,105 @@
+footer.pagefooter {
+  color: $white;
+
+  a, a:visited, a:active {
+    color: $white;
+  }
+  a:hover {
+    color: $lesson-red;
+    border-bottom: 2px solid $lesson-red;
+  }
+
+  .learn-more {
+    background-color: $asc-darkgray;
+    padding: 2rem 1.5rem .5rem 1.5rem;
+
+    figcaption {
+      color: $white;
+    }
+
+    h2 {
+      color: inherit;
+      text-transform: uppercase;
+      padding-bottom: 2rem;
+    }
+    h2 small {
+      color: inherit;
+      display: block;
+    }
+    ul li {
+      height: auto;
+    }
+  } // .learn-more
+
+  .stay-connected {
+    background-color: $lesson-orange;
+    color: $white;
+    padding: 1.5rem;
+
+    h2 {
+      color: inherit;
+      font-weight: 500;
+      a {
+        color: $white;
+        text-decoration: none;
+        border-bottom: 4px solid $white;
+        &:hover {
+          color: $lesson-red;
+          border-bottom: 4px solid $lesson-red;
+        }
+      }
+    }
+
+    ul.social {
+      padding: 1rem 0 1rem 0;
+      li a{
+        border: 0 none;
+        color: $white;
+      }
+    }
+
+    .copywrite {
+      ul {
+        list-style-type: none;
+        text-align: center;
+      }
+      ul li {
+        display: inline-block;
+        font-size: 0.75em;
+        font-weight: light;
+      }
+    }
+  } // .stay-connected
+
+  .rit-black {
+    background-color: $black;
+    .row {
+      padding-bottom: 4rem;
+    }
+    a {
+      border: 0 none;
+      color: $white;
+    }
+    img {
+      padding-bottom: 10px;
+    }
+    p {
+      font-size: 60%;
+      height: 100%;
+      padding-right: 25px;
+      margin: 0;
+      top: 15px;
+      text-align: right;
+      position: relative;
+      display: block;
+      float: right;
+
+      @media #{$small-only} {
+        top: 0;
+        text-align: left;
+        float: left;
+        padding: 0 0 0 25px;
+      }
+    }
+  } // .rit-black
+} // footer

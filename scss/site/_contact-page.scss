@@ -1,0 +1,38 @@
+.contact-page .content-section {
+  padding-bottom: 4rem;
+}
+
+.contact-page table{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.contact-page textarea {
+  height: 8rem;
+}
+
+.contact-page figcaption {
+  .row .columns:first-child {
+    font-weight: bold;
+  }
+}
+
+.contact-page dl {
+  dd, dt {
+    display: inline;
+  }
+}
+
+.contact-page label.required:before {
+  content: "*";
+  color: $lesson-orange;
+}
+
+
+@media #{$small-only} {
+
+  .contact-page .section-title h2 {
+    font-size: 1.5em;
+  }
+
+}

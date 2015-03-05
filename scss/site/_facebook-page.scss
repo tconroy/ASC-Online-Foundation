@@ -1,0 +1,24 @@
+.facebook-page {
+
+  .fb_iframe_widget span:first-child {
+    // width: 90% !important;
+  }
+
+  .fb_iframe_widget, .fb_iframe_widget>span, iframe, .uiScaledImageContainer, .userContent:first-child  {
+    width: 100% !important;
+  }
+
+  ._5v3q ._4-eo {
+    width: 100% !important;
+  }
+  .uiScaledImageContainer {
+    width: auto !important;
+    height: auto !important;
+  }
+  .fbStoryAttachmentImage {
+    width: auto !important;
+    height: auto !important;
+  }
+}
+
+

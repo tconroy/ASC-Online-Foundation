@@ -1,0 +1,31 @@
+.community-subnav {
+  margin-bottom: 4rem;
+}
+
+.community-subnav .button {
+  color: $asc-darkgray;
+  font-size: rem-calc(18);
+  font-weight: 300;
+  background: transparent;
+  border: 1px solid $asc-darkgray;
+
+  @media#{$small-only} {
+    margin-bottom: -1px;
+  }
+
+  &:hover {
+    color: $white;
+    background: $black;
+    border-bottom: inherit;
+  }
+  &:active {
+    padding-top: 1rem;
+  }
+
+  // has ".active" class
+  &.active {
+    color: $white;
+    background: $black;
+    border-bottom: inherit;
+  }
+}

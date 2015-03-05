@@ -1,0 +1,12 @@
+.container {
+  margin-bottom: 6rem;
+}
+
+iframe#twitter-widget-0 {
+  width: 85% !important;
+}
+@media #{$medium-up} {
+  iframe#twitter-widget-0 {
+    width: 100% !important;
+  }
+}

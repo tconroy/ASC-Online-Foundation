@@ -1,0 +1,203 @@
+// format the titles / subtitles inside the section containers
+.section-title {
+  text-align: center;
+  padding: 2rem 0;
+  color: $asc-darkgray;
+  h2, small {
+    display: block;
+  }
+  small {
+    padding: 10px 0;
+    text-transform: capitalize;
+  }
+  h2 {
+    text-transform: uppercase;
+  }
+}
+
+.inner-carousel .slide {
+  &.blue   {background: $lesson-blue; }
+  &.green  {background: $lesson-green;}
+  &.orange {background: $lesson-orange;}
+  &.yellow {background: $lesson-yellow;}
+  &.red    {background: $lesson-red;}
+  &.purple   {background: $lesson-purple;}
+
+  img {
+    margin: 0 auto;
+    padding: 6%;
+    width: 60%;
+  }
+}
+
+header div.contain-to-grid {
+  background: none !important;
+}
+
+.inner-carousel-wrapper {
+  background: none !important;
+}
+
+.inner-carousel {
+  z-index: -1 !important;
+}
+
+.inner-carousel {
+  position: absolute;
+  float: right;
+  height: auto;
+  width: 40%;
+  margin-left: 65%;
+  margin-top: 3.33%;
+}
+
+.inner-carousel .slide {
+  z-index: -1;
+  &.blue   {background: $lesson-blue; }
+  &.green  {background: $lesson-green;}
+  &.orange {background: $lesson-orange;}
+  &.yellow {background: $lesson-yellow;}
+  &.red    {background: $lesson-red;}
+  &.purple   {background: $lesson-purple;}
+
+  img {
+    width: 75% !important;
+    margin: 0 auto;
+    padding: 8%;
+  }
+}
+
+
+
+ .content-section {
+  padding: 0 1em 0 1em;
+  // make section containers alternate BG color
+  &:nth-child(odd) {
+    background-color: $asc-lightgray;
+  }
+  &:nth-child(even) {
+    background-color: $white;
+  }
+} // .front-page .content-section
+
+.front-page .content-section.sneakpeek {
+
+  // padding: 1rem 3rem 3rem 3rem;
+
+  .section-title {
+    padding-bottom: 0;
+  }
+
+  .vidrow {
+    position: relative;
+    bottom: 3rem;
+  }
+
+  .vidwrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 1034px;
+    max-height: 543px;
+    margin: 0 auto;
+
+    @media #{$large-up} {
+      margin-bottom: 10%;
+    }
+
+    .framewrapper {
+      background: url('http://i.imgur.com/vq812Tr.png') center center no-repeat;
+      background-size: contain;
+      position: relative;
+      padding-top:40px;
+      padding-bottom: 67.5%;
+      height: 0;
+
+
+      .lazyYT-container {
+        background: transparent;
+        width: 69%;
+        height: 73.3%;
+        margin: 9.2% 15.5%;
+        .ytp-thumbnail {
+          margin-top: 5.5%;
+        }
+      }
+      iframe {
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 77%;
+      }
+    }
+  }
+} // .front-page .content-section.sneakpeek
+
+// increases padding around "ASC Online Classroom" title
+.front-page .content-section.classroom {
+  .section-title {
+    padding: 4rem 0;
+  }
+
+  &>.row {
+    padding-bottom: 6rem;
+    @media #{$small-only} {
+      padding-bottom: 0;
+    }
+  }
+
+  // for mobile only: add padding so lesson boxes do not take full width.
+  .lesson-container {
+    @media #{$small-only} {
+      padding: 0 2.5rem 2.5rem 2.5rem;
+    }
+  }
+
+  // link wrapping around each lesson panel
+  .lesson-panel-link {
+    &:hover, &:active {
+      @extend .hvr-grow;
+      border: none;
+      .panel-header, .panel {
+        opacity: 1.0;
+      }
+    }
+  }
+
+  // format lesson panel headers (image, bg color)
+  .panel-header {
+    opacity: 0.85;
+    padding: 5% 0;
+
+    // colors
+    &.blue   { background-color:   $lesson-blue; }
+    &.green  { background-color:  $lesson-green; }
+    &.orange { background-color: $lesson-orange; }
+    &.yellow { background-color: $lesson-yellow; }
+    &.red    { background-color:    $lesson-red; }
+    &.purple { background-color: $lesson-purple; }
+
+    img {
+      max-width: 150px;
+      max-height: 150px;
+      padding: 20px;
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+    }
+  }
+
+  // format lesson panel body (title, content)
+  .panel {
+    opacity: 0.85;
+    background: white;
+    box-shadow: 4px 4px 4px #FCFCFC;
+    border: none;
+    h3 {
+      text-align: center;
+      text-transform: uppercase;
+      padding: 15px 0;
+    }
+  }
+} // .front-page .content-section.classroom

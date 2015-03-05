@@ -1,0 +1,41 @@
+#metaritlogo {
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 375px;
+    height: 51px;
+    background: url(http://rit.edu/framework/v0/images/idbar-black.gif) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+
+.rit-identity-bar {
+  font-size: rem-calc(13);
+  background-color: $black;
+
+  .top-bar {
+    height: rem-calc(45);
+    background-color: $black;
+  }
+
+  .top-bar a {
+    font-size: rem-calc(13);
+    height: inherit;
+    color: white;
+    text-transform: none;
+  }
+
+  .top-bar, .top-bar-section, .has-form {
+    background-color: inherit;
+    height: inherit;
+  }
+  ul.right>li>a {
+    background: black !important;
+  }
+}
