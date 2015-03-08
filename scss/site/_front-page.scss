@@ -105,7 +105,8 @@ header div.contain-to-grid {
     }
 
     .framewrapper {
-      background: url('http://i.imgur.com/vq812Tr.png') center center no-repeat;
+      // background: url('http://i.imgur.com/vq812Tr.png') center center no-repeat;
+      background: url('../../ASC-Online/assets/img/home/laptop.png') center center no-repeat;
       background-size: contain;
       position: relative;
       padding-top:40px;
@@ -138,6 +139,9 @@ header div.contain-to-grid {
 .front-page .content-section.classroom {
   .section-title {
     padding: 4rem 0;
+    @media #{$small-only} {
+      padding: 2rem 0;
+    }
   }
 
   &>.row {

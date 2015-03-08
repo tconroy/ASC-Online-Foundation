@@ -32,4 +32,7 @@ require_once('library/theme-support.php');
 // Add Header image
 require_once('library/custom-header.php');
 
+// Custom ASCO
+require_once('library/custom-asco-functions.php');
+
 ?>

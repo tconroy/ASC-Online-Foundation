@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 <?php get_template_part('parts/community-subnav'); ?>
 <div class="row">
-	<div class="small-12 large-8 columns" role="main">
+	<div class="small-12 medium-9 columns" id="content" role="main">
+	<hr>
 	<?php if ( have_posts() ) : ?>
 
 		<?php do_action('foundationPress_before_content'); ?>
@@ -19,12 +20,14 @@
 
 
 
-	<?php if ( function_exists('FoundationPress_pagination') ) { FoundationPress_pagination(); } else if ( is_paged() ) { ?>
+	<?php /*
+				COMMENTED OUT for JetPack Infinite Scroll
+	if ( function_exists('FoundationPress_pagination') ) { FoundationPress_pagination(); } else if ( is_paged() ) { ?>
 		<nav id="post-nav">
 			<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'FoundationPress' ) ); ?></div>
 			<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'FoundationPress' ) ); ?></div>
 		</nav>
-	<?php } ?>
+	<?php } */?>
 
 	<?php do_action('foundationPress_after_content'); ?>
 

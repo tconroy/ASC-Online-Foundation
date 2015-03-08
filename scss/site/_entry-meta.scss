@@ -1,0 +1,20 @@
+div.meta-container {
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: $asc-mediumgray;
+
+  time.updated {
+    display: inline;
+  }
+
+  p.byline.author {
+    display: inline;
+    font-size: 0.9rem;
+  }
+
+  a[data-disqus-identifier] {
+    display: inline-block;
+  }
+
+} // .meta-container

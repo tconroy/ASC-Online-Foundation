@@ -8,22 +8,26 @@ var ASCOBlogIndex = (function($){
   //   alert('I am private!');
   // };
 
-  var _bindExpandLink = function() {
-      $('a.expand-excerpt').click(function(e){
-        e.preventDefault();
-        $(this).prev('div.post-excerpt').toggle('fast');
-         $(this).next('div.post-content').toggle('fast');
-         if ( $(this).text() === '(more)' ) {
-          $(this).text('(less)');
-         } else {
-          $(this).text('(more)');
-         }
-      });
+  var _bindRevealLinks = function() {
+    $('section.container').on('click', 'a.expand-excerpt', function(e){
+      e.preventDefault();
+      $(this).parents('.post-excerpt')
+             .css('display', 'none')
+             .next('.post-content')
+             .slideDown('slow');
+    });
+    $('section.container').on('click', 'a.collapse-excerpt', function(e){
+      e.preventDefault();
+      $(this).parents('.post-content')
+             .slideUp('slow')
+             .prev('.post-excerpt')
+             .css('display', 'block');
+    });
   };
 
   var init = function(){
     console.log('ASCOBlogIndex::init() fired.');
-    _bindExpandLink();
+    _bindRevealLinks();
   };
 
   return {

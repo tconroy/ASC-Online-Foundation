@@ -2,7 +2,7 @@
 <?php get_template_part('parts/community-subnav'); ?>
 
 <div class="row twitter-page">
-  <div class="small-12 large-8 columns center-text" role="main">
+  <div class="small-12 large-9 columns center-text" role="main">
     <?php do_action('foundationPress_before_content'); ?>
     <hr>
     <a class="twitter-timeline"

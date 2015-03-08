@@ -2,7 +2,7 @@
 <?php get_template_part('parts/community-subnav'); ?>
 
 <div class="row facebook-page small-collapse medium-uncollapse">
-  <div class="small-12 large-8 columns center-text" role="main">
+  <div class="small-12 large-9 columns center-text" role="main">
   <?php do_action('foundationPress_before_content'); ?>
   <hr>
   <div id="fb-root"></div>

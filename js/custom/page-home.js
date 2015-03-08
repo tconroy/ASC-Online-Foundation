@@ -14,6 +14,7 @@ var ASCOHome = (function($){
 
   var _initHomeCarousel = function(){
     $('.inner-carousel').slick({
+      lazyLoad:      'ondemand',
       accessibility: false,
       autoplay:      true,
       autoplaySpeed: 2500,

@@ -2,6 +2,11 @@
   margin-bottom: 4rem;
 }
 
+.community-subnav .hashtag {
+  text-transform: none;
+  border-bottom: 3px solid $lesson-orange;
+}
+
 .community-subnav .button {
   color: $asc-darkgray;
   font-size: rem-calc(18);

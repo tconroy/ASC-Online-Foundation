@@ -16,22 +16,22 @@ $uri = get_template_directory_uri() . '/assets/img/banners/new/home.png';
 <div class="inner-carousel-wrapper">
   <div class="inner-carousel">
       <div class="slide yellow">
-          <img class="" src="{$lessons['math']}" alt="">
+          <img data-lazy="{$lessons['math']}">
       </div>
       <div class="slide purple">
-          <img class="" src="{$lessons['onlineLearning']}" alt="">
+          <img data-lazy="{$lessons['onlineLearning']}">
       </div>
       <div class="slide red">
-          <img class="" src="{$lessons['reading']}" alt="">
+          <img data-lazy="{$lessons['reading']}">
       </div>
       <div class="slide blue">
-          <img class="" src="{$lessons['studySkills']}" alt="">
+          <img data-lazy="{$lessons['studySkills']}">
       </div>
       <div class="slide green">
-          <img class="" src="{$lessons['timeManagement']}" alt="">
+          <img data-lazy="{$lessons['timeManagement']}">
       </div>
       <div class="slide orange">
-          <img class="" src="{$lessons['tutoring']}" alt="">
+          <img data-lazy="{$lessons['tutoring']}">
       </div>
   </div> <!-- .inner-carousel -->
   <img src="{$uri}">

@@ -1,0 +1,42 @@
+aside#sidebar {
+  // offset a bit from top
+  margin-top: 1rem;
+  // make the sidebar headers slightly bold
+  h6 {
+    font-weight: 500;
+  }
+
+  // for the popular posts widget
+  #wpp-3 .wpp-list {
+    list-style-type: none;
+  }
+  a.wpp-post-title {
+    font-size: .8rem;
+  }
+
+  // for the simple sharing widget buttons
+  .ssba {
+    a img {
+      opacity: 0.8;
+    }
+    a:hover {
+      border-bottom: none;
+      img {
+        opacity: 1.0;
+      }
+    }
+  }
+
+  // on small screens, center-align the sidebar content
+  // when it's collapsed below the main content
+  @media#{$small-only} {
+    text-align: center;
+    ul {
+      margin-left: 0;
+    }
+    .ssba div {
+      text-align: center !important;
+    }
+  }
+
+}

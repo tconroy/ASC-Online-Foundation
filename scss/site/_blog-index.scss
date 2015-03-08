@@ -1,0 +1,23 @@
+body.blog {
+
+
+  header.content-header{
+
+    div.avatar-container {
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    h4 {
+      margin: 0;
+    }
+
+  } // header.content-header
+
+  ul.breadcrumbs.categories {
+    background: none;
+    border: none;
+  }
+
+} // body.blog

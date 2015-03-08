@@ -10,7 +10,7 @@
 
 <div class="row text-center community-subnav">
   <div class="section-title" id="offset">
-    <h2>What's New <small>ASC Sneak Peek</small></h2>
+    <h2>Explore the <span class="hashtag">#ASCatRIT</span> Community</h2>
   </div> <!-- .section-title -->
   <div class="row">
     <div class="small-12 medium-4 columns">
