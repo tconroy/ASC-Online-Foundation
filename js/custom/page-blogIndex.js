@@ -1,12 +1,4 @@
 var ASCOBlogIndex = (function($){
-  // var MY_CONSTANT = 123;
-
-  // var _myPrivateVariable = 'TEST MEH';
-  // var _$myPrivateJqueryObject = $('div.content');
-
-  // var _myPrivateMethod = function(){
-  //   alert('I am private!');
-  // };
 
   var _bindRevealLinks = function() {
     $('section.container').on('click', 'a.expand-excerpt', function(e){

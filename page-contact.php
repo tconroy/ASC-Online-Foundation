@@ -6,8 +6,8 @@
 
       <div class="section-title">
         <h2>
-          Send a Message
-          <small class="show-for-medium-up">Or Drop By</small>
+          Send Us a Message
+          <small class="show-for-medium-up">College is hard... Let us help!</small>
         </h2>
       </div> <!-- .section-title -->
 
@@ -19,12 +19,16 @@
             </a>
             <figcaption class="medium-offset-1">
               <div class="row">
-                <div class="small-3 medium-3 columns">Location</div>
-                <div class="small-9 medium-9 columns">Monroe Hall, Room 2080</div>
+                <div class="small-3 medium-5 large-3 columns">Location</div>
+                <div class="small-9 medium-7 large-9 columns">Monroe Hall, Room 2080 <br> (Above Artesano’s Bakery and Café)</div>
               </div>
               <div class="row">
-                <div class="small-3 medium-3 columns">Phone</div>
-                <div class="small-9 medium-9 columns">585-475-6682</div>
+                <div class="small-3 medium-5 large-3 columns">Phone</div>
+                <div class="small-9 medium-7 large-9 columns"><a href="tel:5854756682">585-475-6682</a></div>
+              </div>
+              <div class="row">
+                <div class="small-3 medium-5 large-3 columns">Email</div>
+                <div class="small-9 medium-7 large-9 columns"><a href="mailto:asc@rit.edu">asc@rit.edu</a></div>
               </div>
             </figcaption>
           </figure>
@@ -48,6 +52,7 @@
             </div>
             <div class="small-12 columns">
 
+              <!-- TODO: CAPTCHA MODAL
               <a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
 
               <div id="myModal" class="reveal-modal" data-reveal>
@@ -60,7 +65,7 @@
                 </div>
 
                 <a class="close-reveal-modal">&#215;</a>
-              </div>
+              </div>-->
 
             </div>
             <div class="small-12 columns">

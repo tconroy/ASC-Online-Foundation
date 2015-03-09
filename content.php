@@ -11,7 +11,7 @@
 
 	<div class="media">
     <a class="left media-thumb" href="<?= get_author_posts_url('ID') ?>" rel="author">
-    	<img class="media-object" src="<?= get_avatar_url(get_avatar( get_the_author_meta('ID'), 52 )) ?>" alt="...">
+    	<img class="media-object" src="<?= get_avatar_url(get_avatar( get_the_author_meta('ID'), 52 )) ?>" alt="">
     </a>
     <div class="media-body">
     	<h5 class="media-heading">
@@ -27,7 +27,7 @@
   	</div>
   </div>
 	<footer class="row">
-		<div class="small-12 columns  columns">
+		<div class="small-11 small-offset-1 columns">
 		<?php
       $tag = get_the_tags();
       if ($tag) {
@@ -41,9 +41,10 @@
         foreach((get_the_category()) as $category) {
           $catname = $category->cat_name;
           if ( $catname !== 'Uncategorized' && $catname !== 'Blog' ) {
-            $imguri = $baseuri . str_replace(' ', '_', $catname) . '.png';
+            $moddedName = str_replace(' ', '_', $catname);
+            $imguri = $baseuri . $moddedName . '.png';
             $catlink = get_category_link( $category->cat_ID );
-            $img = '<img width="16" height="16" title="'.$catname.'" alt="'.$catname.'" src="'.$imguri.'"/>';
+            $img = '<img width="16" height="16" class="'.$moddedName.'" title="'.$catname.'" alt="'.$catname.'" src="'.$imguri.'"/>';
             echo "<li><a href='{$catlink}'>{$img}</a></li>";
           }
         }

@@ -45,7 +45,8 @@
   <div class="stay-connected text-center">
     <div class="row">
       <div class="small-12 small-centered columns">
-        <h2>Visit <a href="">ASC</a> and Stay Connected</h2>
+        <!-- <h2>Visit <a href="">ASC</a> and Stay Connected</h2> -->
+        <h2>CONNECT WITH US</h2>
       </div>
     </div>
     <div class="row">

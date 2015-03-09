@@ -97,7 +97,7 @@ a[rel~="tag"] {
  	width: auto;
  	height: 30px;
  	margin-left: 20px;
- 	padding: 0 12px;
+ 	padding: 0 6px;
  	line-height: 30px;
  	background: $asc-lightgray;
  	color: #fff;
@@ -146,9 +146,6 @@ a[rel~="tag"] {
 	}
 }
 
-.top-bar-container.primNavContainer {
-	// padding: 0.4rem 0;
-}
 
 // Fix the issue where the WP adminbar overlaps the mobile menu
 #wpadminbar {
@@ -169,6 +166,32 @@ div.spinner[role="progressbar"] {
 	background: inherit;
 	opacity: 0.9;
 }
+
+// style for the blog category list under post headings
+ul.breadcrumbs.categories {
+  background: none;
+  border: none;
+  margin-bottom: 0;
+
+  a {
+    padding: 5px;
+    &:hover {
+      border-bottom: 4px solid $lesson-orange;
+    }
+  }
+}
+
+// styling for "back to top" button on blog pages
+.cd-top.cd-is-visible {
+  /* the button becomes visible */
+  visibility: visible;
+  opacity: 1;
+}
+.cd-top.cd-fade-out {
+  /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+  opacity: .5;
+}
+
 
 // A more subtle background color for the active menu item
 // .top-bar-section li.active:not(.has-form) a:not(.button)  {
@@ -195,6 +218,10 @@ ul.sub-menu.dropdown:hover {
 	}
 }
 
+a.expand-excerpt, a.collapse-excerpt {
+	font-size: 90%;
+	font-weight: 200 !important;
+}
 
 
 @media #{$medium-only} {

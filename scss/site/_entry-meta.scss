@@ -4,6 +4,10 @@ div.meta-container {
   line-height: 1.5;
   color: $asc-mediumgray;
 
+  a {
+    font-weight: normal !important;
+  }
+
   time.updated {
     display: inline;
   }

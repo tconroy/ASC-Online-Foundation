@@ -7,7 +7,7 @@ if(!function_exists('new_excerpt_more')) :
   function new_excerpt_more($more) {
     if( is_home() ) {
       global $post;
-      return ' <a class="expand-excerpt" href="#">(more)</a>';
+      return '... <a class="expand-excerpt" href="#">(more)</a>';
     }
   }
   add_filter('excerpt_more', 'new_excerpt_more');
@@ -53,6 +53,7 @@ if( !function_exists('init_infinite_scroll') ) :
       'container'      => 'content',
       'posts_per_page' => 5,
       'footer_widgets' => false,
+      'footer'         => false
     ));
   }
   add_action( 'after_setup_theme', 'init_infinite_scroll' );

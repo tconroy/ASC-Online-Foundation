@@ -5,7 +5,10 @@
     <div class="row content-section sneakpeek hide-for-small-only">
 
       <div class="section-title">
-        <h2>ASC Online Sneak Peek</h2>
+        <h2>
+          ASC Online
+          <small>Sneak Peek</small>
+        </h2>
       </div> <!-- .section-title -->
 
       <div class="row vidrow">
@@ -48,7 +51,7 @@
             <div class="panel" data-equalizer-watch>
                 <h3>Study Skills</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Wondering what studying truly involves?  Identify what to study, how to study, and when to study.
                 </p>
             </div>
           </a>
@@ -62,7 +65,7 @@
             <div class="panel" data-equalizer-watch>
               <h3>Time Management</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Time management and organizational skills are the foundation to academic success.
               </p>
             </div>
           </a>
@@ -76,7 +79,7 @@
             <div class="panel" data-equalizer-watch>
               <h3>Tutoring</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Being a successful tutor is as important as using a tutor successfully.
               </p>
             </div>
           </a>
@@ -94,7 +97,7 @@
             <div class="panel" data-equalizer-watch>
               <h3>Math</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Success in math relies on preparation, good note-taking, and working effectively with class material.
               </p>
             </div>
           </a>
@@ -108,7 +111,7 @@
             <div class="panel" data-equalizer-watch>
               <h3>Reading</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                It’s not a door stop!  Effective textbook reading strategies are essential to college success.
               </p>
             </div>
           </a>
@@ -122,7 +125,7 @@
             <div class="panel" data-equalizer-watch>
               <h3>Online Learning</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Beyond the bricks - Learning how to learn online.
               </p>
             </div>
           </a>
