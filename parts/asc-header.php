@@ -6,6 +6,8 @@
 
       if ( is_front_page() ) {
         $uri .= 'home.png';
+      } else if ( is_page('Lessons') ) {
+        $uri .= get_lessons_page_header();
       } else if ( is_page('Series') ) {
         $uri .= 'series-realdeal.png';
       } else if ( is_page('Contact') || is_page('Community') ) {

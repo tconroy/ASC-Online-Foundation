@@ -1,4 +1,40 @@
 <?php
+if(!function_exists('redirect_ie')) :
+  function redirect_ie() {
+      if( is_ie() && get_browser_version() < 9 ) {
+        $path = get_template_directory_uri() .'/outdatedbrowser.php';
+        $browser = get_browser_name();
+        $version = get_browser_version();
+        header('Location: ' . $path.'?browser='.$browser.'&version='.$version);
+      }
+  }
+  add_action( 'init', 'redirect_ie' );
+endif;
+
+/**
+ * returns string representing active lessons video page header image
+ */
+if( !function_exists('get_lessons_page_header') ) :
+  function get_lessons_page_header() {
+    $out = "lesson-";
+
+    if ( isset($_GET['lc']) ) {
+      switch( $_GET['lc'] ) {
+        case "math":            $out .= "math"; break;
+        case "online-learning": $out .= "onlineLearning"; break;
+        case "reading":         $out .= "reading"; break;
+        case "study-skills":    $out .= "studySkills"; break;
+        case "time-management": $out .= "timeManagement"; break;
+        case "tutoring":        $out .= "tutoring"; break;
+      }
+    } else {
+      $out .= 'onlineLearning';
+    }
+    return $out.'.png';
+  }
+  add_action('before_setup_theme', 'get_lessons_page_header');
+endif;
+
 /**
  * adds expandable link to the end of the excerpt text, toggles content
  */

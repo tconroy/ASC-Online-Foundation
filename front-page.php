@@ -44,7 +44,7 @@
       <div class="row" data-equalizer>
 
         <div class="small-12 medium-4 columns lesson-container">
-          <a href="#" class="lesson-panel-link">
+          <a href="<?= add_query_arg(['lc'=>'study-skills'],get_permalink(84));?>" class="lesson-panel-link">
             <div class="panel-header blue">
               <img src="<?= bloginfo('template_directory').'/assets/img/lesson-icons/Revised_StudySkills.png'?>" alt="Study Skills">
             </div>
@@ -58,7 +58,7 @@
         </div>
 
         <div class="small-12 medium-4 columns lesson-container">
-          <a href="#" class="lesson-panel-link">
+          <a href="<?= add_query_arg(['lc'=>'time-management'],get_permalink(84));?>" class="lesson-panel-link">
             <div class="panel-header green">
               <img src="<?= bloginfo('template_directory').'/assets/img/lesson-icons/Revised_TimeManagement.png'?>" alt="Time Management">
             </div>
@@ -72,7 +72,7 @@
         </div>
 
         <div class="small-12 medium-4 columns lesson-container">
-          <a href="#" class="lesson-panel-link">
+          <a href="<?= add_query_arg(['lc'=>'tutoring'],get_permalink(84));?>" class="lesson-panel-link">
             <div class="panel-header orange">
               <img src="<?= bloginfo('template_directory').'/assets/img/lesson-icons/Revised_Tutoring.png'?>" alt="Tutoring">
             </div>
@@ -90,7 +90,7 @@
       <div class="row" data-equalizer>
 
         <div class="small-12 medium-4 columns lesson-container">
-          <a href="#" class="lesson-panel-link">
+          <a href="<?= add_query_arg(['lc'=>'math'],get_permalink(84));?>" class="lesson-panel-link">
             <div class="panel-header yellow">
               <img src="<?= bloginfo('template_directory').'/assets/img/lesson-icons/Revised_Math.png'?>" alt="Math">
             </div>
@@ -101,10 +101,10 @@
               </p>
             </div>
           </a>
-        </div>
+        </div> <!-- /lesson-container -->
 
         <div class="small-12 medium-4 columns lesson-container">
-          <a href="#" class="lesson-panel-link">
+          <a href="<?= add_query_arg(['lc'=>'reading'],get_permalink(84));?>" class="lesson-panel-link">
             <div class="panel-header red">
               <img src="<?= bloginfo('template_directory').'/assets/img/lesson-icons/Revised_Reading.png'?>" alt="Reading">
             </div>
@@ -115,10 +115,10 @@
               </p>
             </div>
           </a>
-        </div>
+        </div> <!-- /lesson-container -->
 
         <div class="small-12 medium-4 columns lesson-container">
-          <a href="#" class="lesson-panel-link">
+          <a href="<?= add_query_arg(['lc'=>'online-learning'],get_permalink(84));?>" class="lesson-panel-link">
             <div class="panel-header purple">
               <img src="<?= bloginfo('template_directory').'/assets/img/lesson-icons/Revised_OnlineLearning.png'?>" alt="Online Learning">
             </div>
@@ -129,8 +129,7 @@
               </p>
             </div>
           </a>
-        </div>
-      </div>
+        </div> <!-- /lesson-container -->
 
       </div> <!-- .row -->
 

@@ -1,18 +1,16 @@
-// load Foundation
-jQuery(document).foundation();
-
 $(document).ready(function(){
-  // load plugins
-  jQuery('.lazyYT').lazyYT();
+
+  // load Foundation
+  $(document).foundation({
+    equalizer: {
+      equalize_on_stack: true
+    }
+  });
 
   // load page-specific modules
   switch ( page_title ) {
-    case "Home":
-      ASCOHome.init();
-      break;
-    case "Facebook":
-      ASCOFacebook.init();
-      break;
+    case "Home": ASCOHome.init(); break;
+    case "Facebook": ASCOFacebook.init(); break;
     // case "Contact":
     //   ASCOContact.init();
     // break;

@@ -10,6 +10,11 @@ body {
 	font-family: "Open Sans";
 }
 
+section.container {
+	margin-bottom: 0;
+}
+
+// main content section container link styling
 section.container a {
 	color: $lesson-orange;
 	font-weight: bold;
@@ -30,7 +35,7 @@ section.container a {
 	&:active {
 		padding-top: 2px;
 	}
-}
+} // section.container a
 
 // Reset margin and padding on figure element
 figure {
@@ -76,12 +81,7 @@ img.alignright {
 }
 
 
-// Add some whitespace between top bar and content
-// .top-bar-container, .tab-bar {
-// 	margin-bottom: rem-calc(32);
-// }
-
-// styling the tags
+// styling the post tags to look like.. well.. tags :-)
 .tag-lead {
 	float: left;
 	font-size: 70%;
@@ -123,7 +123,6 @@ a[rel~="tag"] {
  		border-color: transparent $asc-lightgray transparent transparent;
  		border-width: 15px 15px 15px 0;
 	}
-
 	&:after {
  		content: "";
  		position: absolute;
@@ -144,7 +143,7 @@ a[rel~="tag"] {
 		border-bottom: none !important;
 		opacity: 1.0;
 	}
-}
+} //.tags
 
 
 // Fix the issue where the WP adminbar overlaps the mobile menu
@@ -162,6 +161,7 @@ div.spinner[role="progressbar"] {
 }
 
 
+// make the primary nav bar transparent on desktop/tablet
 .top-bar-container .sticky {
 	background: inherit;
 	opacity: 0.9;
@@ -193,50 +193,94 @@ ul.breadcrumbs.categories {
 }
 
 
-// A more subtle background color for the active menu item
-// .top-bar-section li.active:not(.has-form) a:not(.button)  {
-// 	background: #272727;
-// }
+// custom styline for the dropdowns and main nav
 .top-bar-section li.active:not(.has-form) a:hover:not(.button) {
 	background: white;
 	color: $lesson-orange;
 }
-
 .top-bar-menu li.menu-item:not(.parent-link) :hover {
 	span.nav-underline:not(&.parent-link) {
 		border-bottom: 4px solid $lesson-orange;
 	}
 }
-
 ul.sub-menu.dropdown:hover {
 	li a span.nav-underline {
 		border-bottom: none !important;
 	}
-
 	li a:hover span.nav-underline {
 		border-bottom: 4px solid $lesson-orange !important;
 	}
 }
 
+// styling for expand/collapse text links on blog index
 a.expand-excerpt, a.collapse-excerpt {
 	font-size: 90%;
 	font-weight: 200 !important;
 }
 
 
+// button that takes user to top of page
+.topbutton {
+	height:50px;
+	width:50px;
+	position:fixed;
+	// right:5px;
+	// bottom:5px;
+	right:5%;
+	bottom:5%;
+	z-index:1;
+	// background-image: url("http://example.com/wp-content/uploads/2015/01/topbutton.png");
+	// background-repeat:no-repeat;
+	background: transparent;
+	border: 3px solid $asc-lightgray;
+	display:none;
+  -webkit-transition: background 0.5s linear;
+  -moz-transition: background 0.5s linear;
+  -ms-transition: background 0.5s linear;
+  -o-transition: background 0.5s linear;
+  transition: background 0.5s linear;
+	&:hover {
+		background: $asc-lightgray;
+		span {
+			color: $lesson-orange;
+		}
+	}
+	span {
+		height: 50px;
+		width: 50px;
+		color: $asc-mediumgray;
+  	-webkit-transition: color 0.5s linear;
+  	-moz-transition: color 0.5s linear;
+  	-ms-transition: color 0.5s linear;
+  	-o-transition: color 0.5s linear;
+  	transition: color 0.5s linear;
+  	i {
+		  display: table-cell;
+		  width: 50px;
+		  height: 50px;
+		  text-align: center;
+		  padding: 12px;
+  	}
+	}
+}
+
+
+/**
+ * SIZE-SPECIFIC STYLINGS
+ */
+// change font size and padding on medium screens so the main nav links dont wrap
 @media #{$medium-only} {
 	.top-bar-section li:not(.has-form) a:not(.button) {
 		padding: 0 0.8rem;
 		font-size: rem-calc(16);
 	}
 }
-
+// increase padding of menu on large screens so nav bar takes up more space
 @media #{$large-up} {
 	.top-bar-section li:not(.has-form) a:not(.button) {
 		padding: 0 2rem;
 	}
 }
-
 // Add some whitespace above the footer for medium-up screens
 @media #{$medium-up} {
 	footer.pagefooter.row {

@@ -24,10 +24,16 @@ var ASCOHome = (function($){
     });
   };
 
+  var _initYouTubeLazyLoad = function() {
+    // load plugins
+    jQuery('.lazyYT').lazyYT();
+  }
+
   var init = function(){
     console.log('ASCOHome::init() fired.');
     _moveOffCanvasLink();
     _initHomeCarousel();
+    _initYouTubeLazyLoad();
   };
 
   return {

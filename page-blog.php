@@ -1,1 +1,0 @@
-<?php get_template_part('parts/community-subnav'); ?>

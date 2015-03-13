@@ -1,4 +1,7 @@
 </section>
+
+<a href="#" alt="to top" title="to top of page" class="topbutton"><span><i class="fa fa-chevron-up"></i></span></a>
+
 <footer class="pagefooter">
 	<?php do_action('foundationPress_before_footer'); ?>
 	<?php dynamic_sidebar("footer-widgets"); ?>
@@ -85,7 +88,7 @@
     <div class="row">
       <div class="small-12 medium-9 columns">
         <a href="http://www.rit.edu">
-          <img src="http://rit.edu/framework/v0/images/idbar-black.gif" alt="RIT">
+          <img src="//rit.edu/framework/v0/images/idbar-black.gif" alt="RIT">
         </a>
       </div>
       <div class="small-12 medium-3 columns">
@@ -108,5 +111,6 @@
 
 <?php wp_footer(); ?>
 <?php do_action('foundationPress_before_closing_body'); ?>
+
 </body>
 </html>
