@@ -1,32 +1,59 @@
 <?php get_header(); ?>
+
 <div class="row">
-	<div class="small-12 medium-9 columns" role="main">
+  <div class="small-12 medium-10 medium-offset-1">
+    <?php get_template_part('parts/lessons-subnav'); ?>
+  </div>
+</div>
+
+<div class="row">
+	<div class="small-12 medium-9 columns lesson-single" role="main">
+
 	<?php do_action('foundationPress_before_content'); ?>
 
 	<?php while (have_posts()) : the_post(); ?>
-		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
-			<hr>
 
-		  <div class="media">
-		    <a class="left media-thumb" href="<?= get_author_posts_url('ID') ?>" rel="author">
-		      <img class="media-object" src="<?= get_avatar_url(get_avatar( get_the_author_meta('ID'), 52 )) ?>" alt="...">
-		    </a>
-		    <div class="media-body">
-		      <h2 class="media-heading">
-		      	<?= the_title(); ?>
-		      	<small><?= FoundationPress_entry_meta(); ?></small>
-	      	</h2>
-	      	<?php do_action('foundationPress_post_before_entry_content'); ?>
-  				<?php if ( has_post_thumbnail() ): ?>
-						<div class="row">
-							<div class="column">
-								<?php the_post_thumbnail('', array('class' => 'th')); ?>
-							</div>
-						</div>
-					<?php endif; ?>
-		      <?= the_content(); ?>
-		    </div>
-		  </div>
+		<?php
+			$vid_url  = get_field('lesson_video_url');
+  		$vid_code = explode('=', $vid_url)[1];
+		 ?>
+
+		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
+			<!-- article header -->
+			<section class="title">
+				<h3><?= the_title(); ?></h3>
+				<span>Length</span>
+				<span>Views</span>
+			</section>
+			<!-- /article header -->
+
+			<!-- YouTube Video Container -->
+			<section class="embedded-content">
+				<div class="embed-container">
+					<iframe src='https://www.youtube.com/embed/<?= $vid_code; ?>' frameborder='0' allowfullscreen></iframe>
+				</div>
+	      <ul class="inline-list vid-actions">
+	        <li><a href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>
+	        <li><a href="#"><i class="fa fa-envelope"><span>Share</span></i></a></li>
+	        <li><a href="#"><i class="fa fa-download"><span>Download Attachments</span></i></a></li>
+	      </ul>
+			</section>
+			 <!-- /YouTube Video Container -->
+
+			<section class="lesson-content">
+				<h3>Video Overview</h3>
+				<p><?= get_field('lesson_video_description'); ?></p>
+
+				<?php
+					if( get_fields('lesson_video_tips') ) {
+						echo "<h3>Video Takeaways</h3>";
+						echo "<p>".get_field('lesson_video_tips')."</p>";
+					}
+				 ?>
+				<!-- <h3>Video Takeaways</h3>
+				<p><?= get_field('lesson_video_tips'); ?></p> -->
+			</section>
+
 			<footer>
 				<?php wp_link_pages(array('before' => '<nav id="page-nav"><p>' . __('Pages:', 'FoundationPress'), 'after' => '</p></nav>' )); ?>
 				<p>

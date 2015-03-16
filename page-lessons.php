@@ -14,16 +14,35 @@
     </div>
 
     <div class="row content-section">
-      <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+      <ul id="lesson-content" class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
         <?php do_action('foundationPress_before_content'); ?>
 
         <?php
-          $args = ["post-type"=>"lesson"];
+          /* if URL query value is a valid category, get all lessons for that category.
+         If it is not a valid category (or not category is provided), get ALL lessons. */
 
-          $validCats = ['study-skills','time-management','math','tutoring','reading','online-learning'];
+          $validCats = ['study-skills', 'time-management', 'math', 'tutoring', 'reading', 'online-learning'];
           if ( isset($_GET['lc']) && in_array($_GET['lc'], $validCats) ) {
-            $args["subject"] = $_GET['lc'];
+              $terms = $_GET['lc'];
+          } else {
+              $terms = $validCats;
           }
+
+          $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+          $args = [
+              'post-type'   => 'lesson',
+              'post-status' => 'publish',
+              'posts_per_page' => 4,
+              'paged'       => $paged,
+              'tax_query'   => [
+                  [
+                      'taxonomy' => 'subject',
+                      'field'    => 'slug',
+                      'terms'    => $terms
+                  ]
+              ]
+          ];
+
          ?>
 
         <?php $lessons = new WP_Query($args); ?>
@@ -36,6 +55,9 @@
           <?php do_action('foundationPress_before_pagination') ?>
         <?php endif; ?>
       </ul>
+      <?php //previous_posts_link( "prev" , $lessons->max_num_pages ); ?>
+      <?php //next_posts_link( "next" , $lessons->max_num_pages ); ?>
+
       <?php do_action('foundationPress_after_content'); ?>
     </div> <!-- .row -->
 

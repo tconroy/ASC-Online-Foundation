@@ -95,4 +95,21 @@ if( !function_exists('init_infinite_scroll') ) :
   add_action( 'after_setup_theme', 'init_infinite_scroll' );
 endif;
 
+/**
+ * Add lazy-loading infinite scroll support for lessons
+ */
+if( !function_exists('init_infinite_scroll_lessons') ) :
+  function init_infinite_scroll_lessons() {
+    add_theme_support( 'infinite-scroll', array(
+      'type'           => 'scroll',
+      'container'      => 'lesson-content',
+      'posts_per_page' => 8,
+      'wrapper'        => false,
+      'footer_widgets' => false,
+      'footer'         => false
+    ));
+  }
+  add_action( 'after_setup_theme', 'init_infinite_scroll_lessons' );
+endif;
+
  ?>
