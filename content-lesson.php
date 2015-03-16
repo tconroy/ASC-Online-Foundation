@@ -13,7 +13,7 @@
 
     $json_output = file_get_contents("http://gdata.youtube.com/feeds/api/videos/".$vid_code."?v=2&alt=json&prettyprint=true");
     $json = json_decode($json_output, true);
-
+    $placeholderimg = get_template_directory_uri() . '/assets/img/ajax/youtube-placeholder.png';
     $vid_title      = get_the_title();
     $vid_date       = get_the_date();
     $vid_desc       = get_field('lesson_video_description');
@@ -25,7 +25,7 @@
   <li class="vid-panel">
     <a href="<?= the_permalink(); ?>">
       <div class="vid-thumbnail">
-        <?= "<img src='http://img.youtube.com/vi/{$vid_code}/hqdefault.jpg' />"?>
+        <?= "<img class='lazy-thumb' src='{$placeholderimg}' data-src='http://img.youtube.com/vi/{$vid_code}/hqdefault.jpg' />"?>
         <span class="overlay"><i class="fa fa-play-circle"></i></span>
         <h5>
           <span><?= $vid_length ?></span>
@@ -35,10 +35,10 @@
     </a>
     <div class="vid-body">
       <a href="<?= the_permalink(); ?>"><h4><?= $vid_title ?></h4></a>
-      <p><?= $vid_desc_short ?></p>
+      <p data-equalizer-watch="vidpanel"><?= $vid_desc_short ?></p>
       <ul class="inline-list center-text vid-actions">
         <li><a href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>
-        <li><a href="#"><i class="fa fa-envelope"><span>Share</span></i></a></li>
+        <li><a class="share" data-target="<?= the_permalink(); ?>" href="#"><i class="fa fa-share-alt"><span>Share</span></i></a></li>
         <li><a href="#"><i class="fa fa-download"><span>PDF</span></i></a></li>
       </ul>
     </div>

@@ -11,12 +11,18 @@ $(document).ready(function(){
   switch ( page_title ) {
     case "Home": ASCOHome.init(); break;
     case "Facebook": ASCOFacebook.init(); break;
+
     // case "Contact":
     //   ASCOContact.init();
     // break;
   }
   // load class-specific modules
-  if( $('body').hasClass('blog') ) {
+  $body = $('body');
+  if( $body.hasClass('blog') ) {
     ASCOBlogIndex.init();
+  }
+  // Lessons Index Page
+  if( $body.hasClass('post-type-archive-lesson') || $body.hasClass('tax-subjects') ) {
+    ASCOLessonsIndex.init();
   }
 });

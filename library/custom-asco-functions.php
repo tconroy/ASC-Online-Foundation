@@ -1,4 +1,7 @@
 <?php
+/**
+ * Redirects user to browser update page if older than IE9.
+ */
 if(!function_exists('redirect_ie')) :
   function redirect_ie() {
       if( is_ie() && get_browser_version() < 9 ) {
@@ -18,8 +21,8 @@ if( !function_exists('get_lessons_page_header') ) :
   function get_lessons_page_header() {
     $out = "lesson-";
 
-    if ( isset($_GET['lc']) ) {
-      switch( $_GET['lc'] ) {
+    if ( isset($_GET['subjects']) ) {
+      switch( $_GET['subjects'] ) {
         case "math":            $out .= "math"; break;
         case "online-learning": $out .= "onlineLearning"; break;
         case "reading":         $out .= "reading"; break;
@@ -84,10 +87,18 @@ endif;
  */
 if( !function_exists('init_infinite_scroll') ) :
   function init_infinite_scroll() {
+
+    // want 2 rows of 4 for lesson videos
+    if ( is_page('Lessons') || is_tax('tax-subjects') ) {
+      $ppp = 8;
+    } else {
+      $ppp = 5;
+    }
+
     add_theme_support( 'infinite-scroll', array(
       'type'           => 'scroll',
       'container'      => 'content',
-      'posts_per_page' => 5,
+      'posts_per_page' => 4,
       'footer_widgets' => false,
       'footer'         => false
     ));
@@ -99,11 +110,19 @@ endif;
  * Add lazy-loading infinite scroll support for lessons
  */
 if( !function_exists('init_infinite_scroll_lessons') ) :
+
+  function mytheme_render_infinite_scroll() {
+    while ( have_posts() ) : the_post();
+        get_template_part( 'content', 'lesson' );
+    endwhile;
+  }
+
   function init_infinite_scroll_lessons() {
     add_theme_support( 'infinite-scroll', array(
       'type'           => 'scroll',
-      'container'      => 'lesson-content',
-      'posts_per_page' => 8,
+      'container'      => 'lessons',
+      'render'         => 'mytheme_render_infinite_scroll',
+      'posts_per_page' => 4,
       'wrapper'        => false,
       'footer_widgets' => false,
       'footer'         => false
@@ -111,5 +130,82 @@ if( !function_exists('init_infinite_scroll_lessons') ) :
   }
   add_action( 'after_setup_theme', 'init_infinite_scroll_lessons' );
 endif;
+
+
+/**
+ * add custom post type (lessons) to main menu
+ */
+add_action('admin_head-nav-menus.php', 'wpclean_add_metabox_menu_posttype_archive');
+
+function wpclean_add_metabox_menu_posttype_archive() {
+add_meta_box('wpclean-metabox-nav-menu-posttype', 'Custom Post Type Archives', 'wpclean_metabox_menu_posttype_archive', 'nav-menus', 'side', 'default');
+}
+
+function wpclean_metabox_menu_posttype_archive() {
+$post_types = get_post_types(array('show_in_nav_menus' => true, 'has_archive' => true), 'object');
+
+if ($post_types) :
+    $items = array();
+    $loop_index = 999999;
+
+    foreach ($post_types as $post_type) {
+        $item = new stdClass();
+        $loop_index++;
+
+        $item->object_id = $loop_index;
+        $item->db_id = 0;
+        $item->object = 'post_type_' . $post_type->query_var;
+        $item->menu_item_parent = 0;
+        $item->type = 'custom';
+        $item->title = $post_type->labels->name;
+        $item->url = get_post_type_archive_link($post_type->query_var);
+        $item->target = '';
+        $item->attr_title = '';
+        $item->classes = array();
+        $item->xfn = '';
+
+        $items[] = $item;
+    }
+
+    $walker = new Walker_Nav_Menu_Checklist(array());
+
+    echo '<div id="posttype-archive" class="posttypediv">';
+    echo '<div id="tabs-panel-posttype-archive" class="tabs-panel tabs-panel-active">';
+    echo '<ul id="posttype-archive-checklist" class="categorychecklist form-no-clear">';
+    echo walk_nav_menu_tree(array_map('wp_setup_nav_menu_item', $items), 0, (object) array('walker' => $walker));
+    echo '</ul>';
+    echo '</div>';
+    echo '</div>';
+
+    echo '<p class="button-controls">';
+    echo '<span class="add-to-menu">';
+    echo '<input type="submit"' . disabled(1, 0) . ' class="button-secondary submit-add-to-menu right" value="' . __('Add to Menu', 'andromedamedia') . '" name="add-posttype-archive-menu-item" id="submit-posttype-archive" />';
+    echo '<span class="spinner"></span>';
+    echo '</span>';
+    echo '</p>';
+
+endif;
+}
+
+/**
+ * Style custom login screen
+ */
+if ( !function_exists('custom_login_logo') ) :
+  function custom_login_logo() { ?>
+      <style type="text/css">
+        body.login {
+          background-image: url(<?= get_template_directory_uri();?>/assets/img/admin/login-bg.png);
+        }
+        body.login div#login h1 a {
+          background-image: url(<?= get_template_directory_uri();?>/assets/img/nav/asco-logo.png);
+          background-size: cover;
+          width: 300px;
+          height: 300px;
+          }
+      </style>
+  <?php }
+  add_action( 'login_enqueue_scripts', 'custom_login_logo' );
+endif;
+
 
  ?>

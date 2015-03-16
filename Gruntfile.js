@@ -38,6 +38,17 @@ module.exports = function(grunt) {
 
     },
 
+    // TODO: setup autoprefixer
+    // autoprefixer: {
+    //   options: {
+    //     // Task-specific options go here.
+    //     browsers: ['last 2 versions', 'ie 8', 'ie 9']
+    //   },
+    //   your_target: {
+    //     // Target-specific file lists and/or options go here.
+    //   },
+    // },
+
 
       'string-replace': {
 
@@ -65,7 +76,7 @@ module.exports = function(grunt) {
 
           // Foundation core
           'bower_components/foundation/js/foundation/foundation.js',
-          
+
           // Pick the componenets you need in your project
           'bower_components/foundation/js/foundation/foundation.abide.js',
           'bower_components/foundation/js/foundation/foundation.accordion.js',
@@ -83,10 +94,16 @@ module.exports = function(grunt) {
           'bower_components/foundation/js/foundation/foundation.tab.js',
           'bower_components/foundation/js/foundation/foundation.tooltip.js',
           'bower_components/foundation/js/foundation/foundation.topbar.js',
-          
+
+          // custom bower plugins
+          'bower_components/alertify.js/lib/alertify.js',
+
+          // include vendor js
+          'js/vendor/jquery.unveil.js',
+
           // Using all of your custom js files
           'js/custom/*.js'
-          
+
           ],
           // Concat all the files above into one single file
           dest: 'js/foundation.js',
@@ -113,6 +130,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');

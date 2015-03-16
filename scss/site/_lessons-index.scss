@@ -1,25 +1,36 @@
-.icon-bar.lesson-icon-bar {
-  background: $white;
-  a.item {
-    opacity: 0.4;
-    &:hover {
-      border-bottom: none;
-      opacity: 1.0;
-      img {
-        @extend .hvr-bob:hover;
-      }
-      label {
-        text-decoration: underline;
-      }
-    }
+#lesson-subnav {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  li {
+    background: $asc-lightgray;
+    text-align: center;
+    padding: 0.5rem;
+    opacity: 0.3;
     &.blue   { background: $lesson-blue }
     &.green  { background: $lesson-green }
     &.orange { background: $lesson-orange }
     &.yellow { background: $lesson-yellow }
     &.red    { background: $lesson-red }
     &.purple { background: $lesson-purple }
-    &.active { opacity: 1.0; }
+    &:hover, &.active  {
+      opacity: 1.0;
+      a {
+        border-bottom: 3px solid $white;
+      }
+    }
+    label { color: $white; }
+    // a:hover { border-bottom: 3px solid $white; }
+    img {
+      max-height: 35px;
+      display: block;
+      margin: 0 auto;
+    }
   }
+
+}
+
+.lessons.content-section {
+  background: $white;
 }
 
 .vid-panel {

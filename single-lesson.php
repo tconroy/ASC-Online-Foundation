@@ -1,10 +1,5 @@
 <?php get_header(); ?>
-
-<div class="row">
-  <div class="small-12 medium-10 medium-offset-1">
-    <?php get_template_part('parts/lessons-subnav'); ?>
-  </div>
-</div>
+<?php //get_template_part('parts/lessons-subnav'); ?>
 
 <div class="row">
 	<div class="small-12 medium-9 columns lesson-single" role="main">
@@ -50,8 +45,6 @@
 						echo "<p>".get_field('lesson_video_tips')."</p>";
 					}
 				 ?>
-				<!-- <h3>Video Takeaways</h3>
-				<p><?= get_field('lesson_video_tips'); ?></p> -->
 			</section>
 
 			<footer>
