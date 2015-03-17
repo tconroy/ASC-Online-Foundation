@@ -1,14 +1,12 @@
 <?php
 /* assign subject button active class based on provided query value */
-$math = $ol = $reading = $ss = $tm = $tutoring = "";
+// $math = $ol = $reading = $ss = $tm = $tutoring = "";
+$active = [ 'math' => '', 'online-learning' =>'', 'reading'=>'', 'study-skills'=>'', 'time-management'=>'', 'tutoring'=>'' ];
 if ( isset($_GET['subjects']) ) {
-  switch( $_GET['subjects'] ) {
-    case "math":            $math     = "active"; break;
-    case "online-learning": $ol       = "active"; break;
-    case "reading":         $reading  = "active"; break;
-    case "study-skills":    $ss       = "active"; break;
-    case "time-management": $tm       = "active"; break;
-    case "tutoring":        $tutoring = "active"; break;
+  $active[ $_GET['subjects'] ] = "active";
+} else {
+  foreach($active as $key => $value) {
+    $active[$key] = 'active';
   }
 }
 
@@ -27,27 +25,27 @@ $img = [
 <div class="row">
   <div class="small-12 medium-9 medium-centered columns">
     <ul id="lesson-subnav" class="button-group even-6" style="text-align: center;">
-      <li class="blue hvr-float <?= $ss ?>">
+      <li class="blue hvr-float <?= $active['study-skills'] ?>">
         <a href="<?= get_term_link('study-skills', 'subjects') ?>"><img src="<?= $img['studyskills'] ?>">
         <label class="show-for-large-up">Study Skills</label></a>
       </li>
-      <li class="green hvr-float <?= $tm ?>">
+      <li class="green hvr-float <?= $active['time-management'] ?>">
         <a href="<?= get_term_link('time-management', 'subjects') ?>"><img src="<?= $img['timemanagement'] ?>" >
         <label class="show-for-large-up">Time Management</label></a>
       </li>
-      <li class="orange hvr-float <?= $tutoring ?>">
+      <li class="orange hvr-float <?= $active['tutoring'] ?>">
         <a href="<?= get_term_link('tutoring', 'subjects') ?>"><img src="<?= $img['tutoring'] ?>" >
         <label class="show-for-large-up">Tutoring</label></a>
       </li>
-      <li class="yellow hvr-float <?= $math ?>">
+      <li class="yellow hvr-float <?= $active['math'] ?>">
         <a href="<?= get_term_link('math', 'subjects') ?>"><img src="<?= $img['math'] ?>" >
         <label class="show-for-large-up">Math</label></a>
       </li>
-      <li class="red hvr-float <?= $reading ?>">
+      <li class="red hvr-float <?= $active['reading'] ?>">
         <a href="<?= get_term_link('reading', 'subjects') ?>"><img src="<?= $img['reading'] ?>" >
         <label class="show-for-large-up">Reading</label></a>
       </li>
-      <li class="purple hvr-float <?= $ol ?>">
+      <li class="purple hvr-float <?= $active['online-learning'] ?>">
         <a href="<?= get_term_link('online-learning', 'subjects') ?>"><img src="<?= $img['onlinelearning'] ?>" >
         <label class="show-for-large-up">Online Learning</label></a>
       </li>

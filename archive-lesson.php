@@ -13,7 +13,7 @@
     <?php get_template_part('parts/lessons-subnav'); ?>
 
     <div class="row lessons content-section">
-      <ul id="lessons" data-equalizer="vidpanel" class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+      <ul id="content" data-equalizer="vidpanel" class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
         <?php do_action('foundationPress_before_content'); ?>
 
         <?php if( have_posts() ) :  ?>

@@ -82,55 +82,38 @@ if( !function_exists('get_avatar_url') ) :
 endif;
 
 
+
+
+
 /**
  * Add lazy-loading infinite scroll support
  */
 if( !function_exists('init_infinite_scroll') ) :
-  function init_infinite_scroll() {
 
-    // want 2 rows of 4 for lesson videos
-    if ( is_page('Lessons') || is_tax('tax-subjects') ) {
-      $ppp = 8;
-    } else {
-      $ppp = 5;
-    }
+  function asc_render_infinite_scroll() {
+    while ( have_posts() ) : the_post();
+        if ( 'lesson' == get_post_type() ) {
+          get_template_part('content', 'lesson');
+        } else {
+          get_template_part( 'content', get_post_format() );
+        }
+    endwhile;
+  }
+
+  function init_infinite_scroll() {
 
     add_theme_support( 'infinite-scroll', array(
       'type'           => 'scroll',
       'container'      => 'content',
       'posts_per_page' => 4,
       'footer_widgets' => false,
-      'footer'         => false
+      'footer'         => false,
+      'wrapper'        => false,
+      'render'         => 'asc_render_infinite_scroll'
     ));
   }
   add_action( 'after_setup_theme', 'init_infinite_scroll' );
 endif;
-
-/**
- * Add lazy-loading infinite scroll support for lessons
- */
-if( !function_exists('init_infinite_scroll_lessons') ) :
-
-  function mytheme_render_infinite_scroll() {
-    while ( have_posts() ) : the_post();
-        get_template_part( 'content', 'lesson' );
-    endwhile;
-  }
-
-  function init_infinite_scroll_lessons() {
-    add_theme_support( 'infinite-scroll', array(
-      'type'           => 'scroll',
-      'container'      => 'lessons',
-      'render'         => 'mytheme_render_infinite_scroll',
-      'posts_per_page' => 4,
-      'wrapper'        => false,
-      'footer_widgets' => false,
-      'footer'         => false
-    ));
-  }
-  add_action( 'after_setup_theme', 'init_infinite_scroll_lessons' );
-endif;
-
 
 /**
  * add custom post type (lessons) to main menu

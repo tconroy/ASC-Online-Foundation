@@ -1,3 +1,11 @@
+/* move infinite-loader icon outside of the content container
+for infinite-scroll sections -- need to place it here before doc ready */
+$('#content').on('DOMNodeInserted', function(e) {
+  if ($(e.target).is('.infinite-loader')) {
+     $(e.target).insertAfter('#content');
+  }
+});
+
 $(document).ready(function(){
 
   // load Foundation
@@ -24,5 +32,9 @@ $(document).ready(function(){
   // Lessons Index Page
   if( $body.hasClass('post-type-archive-lesson') || $body.hasClass('tax-subjects') ) {
     ASCOLessonsIndex.init();
+  }
+  // single lessons page
+  if ( $body.hasClass('single-lesson') ) {
+    ASCOLessonsIndex.initShareBtn();
   }
 });

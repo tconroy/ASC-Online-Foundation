@@ -100,6 +100,7 @@ module.exports = function(grunt) {
 
           // include vendor js
           'js/vendor/jquery.unveil.js',
+          'js/vendor/wow.js',
 
           // Using all of your custom js files
           'js/custom/*.js'

@@ -6,13 +6,17 @@
 
       if ( is_front_page() ) {
         $uri .= 'home.png';
-      } else if ( is_page('Lessons') || is_tax('subjects') ) {
+      }
+      else if ( is_page('Lessons') || is_tax('subjects') ) {
         $uri .= get_lessons_page_header();
-      } else if ( is_page('Series') ) {
+      }
+      else if ( is_page('Series') ) {
         $uri .= 'series-realdeal.png';
-      } else if ( is_page('Contact') || is_page('Community') ) {
+      }
+      else if ( is_page('Contact') || is_page('Community') ) {
         $uri .= 'contact.png';
-      } else {
+      }
+      else {
         $uri .= 'contact.png'; // everything else?
       }
 

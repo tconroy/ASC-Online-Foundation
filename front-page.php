@@ -20,7 +20,7 @@
             </div>
           </div>
         -->
-          <div class="vidwrapper">
+          <div class="vidwrapper wow bounceInUp">
             <div class="framewrapper">
               <div class="lazyYT" data-youtube-id="DAYDZBD3pT8" data-parameters="rel=0">loading...</div>
             </div>
@@ -34,7 +34,7 @@
 
     <div class="row content-section classroom">
 
-      <div class="section-title">
+      <div class="section-title" id="classroom">
         <h2>
           ASC Online Classroom
           <small>Lessons worth Learning</small>
@@ -43,7 +43,7 @@
 
       <div class="row" data-equalizer>
 
-        <div class="small-12 medium-4 columns lesson-container">
+        <div class="small-12 medium-4 columns lesson-container wow fadeInUp">
           <a href="<?= get_term_link('study-skills', 'subjects') ?>" class="lesson-panel-link">
             <div class="panel-header blue">
               <img src="<?= bloginfo('template_directory').'/assets/img/lesson-icons/Revised_StudySkills.png'?>" alt="Study Skills">
@@ -57,7 +57,7 @@
           </a>
         </div>
 
-        <div class="small-12 medium-4 columns lesson-container">
+        <div class="small-12 medium-4 columns lesson-container wow fadeInUp">
           <a href="<?= get_term_link('time-management', 'subjects')?>" class="lesson-panel-link">
             <div class="panel-header green">
               <img src="<?= bloginfo('template_directory').'/assets/img/lesson-icons/Revised_TimeManagement.png'?>" alt="Time Management">
@@ -71,7 +71,7 @@
           </a>
         </div>
 
-        <div class="small-12 medium-4 columns lesson-container">
+        <div class="small-12 medium-4 columns lesson-container wow fadeInUp">
           <a href="<?= get_term_link('tutoring', 'subjects')?>" class="lesson-panel-link">
             <div class="panel-header orange">
               <img src="<?= bloginfo('template_directory').'/assets/img/lesson-icons/Revised_Tutoring.png'?>" alt="Tutoring">
@@ -89,7 +89,7 @@
 
       <div class="row" data-equalizer>
 
-        <div class="small-12 medium-4 columns lesson-container">
+        <div class="small-12 medium-4 columns lesson-container wow fadeInUp">
           <a href="<?= get_term_link('math', 'subjects')?>" class="lesson-panel-link">
             <div class="panel-header yellow">
               <img src="<?= bloginfo('template_directory').'/assets/img/lesson-icons/Revised_Math.png'?>" alt="Math">
@@ -103,7 +103,7 @@
           </a>
         </div> <!-- /lesson-container -->
 
-        <div class="small-12 medium-4 columns lesson-container">
+        <div class="small-12 medium-4 columns lesson-container wow fadeInUp">
           <a href="<?= get_term_link('reading', 'subjects')?>" class="lesson-panel-link">
             <div class="panel-header red">
               <img src="<?= bloginfo('template_directory').'/assets/img/lesson-icons/Revised_Reading.png'?>" alt="Reading">
@@ -117,7 +117,7 @@
           </a>
         </div> <!-- /lesson-container -->
 
-        <div class="small-12 medium-4 columns lesson-container">
+        <div class="small-12 medium-4 columns lesson-container wow fadeInUp">
           <a href="<?= get_term_link('online-learning', 'subjects')?>" class="lesson-panel-link">
             <div class="panel-header purple">
               <img src="<?= bloginfo('template_directory').'/assets/img/lesson-icons/Revised_OnlineLearning.png'?>" alt="Online Learning">

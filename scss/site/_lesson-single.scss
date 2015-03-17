@@ -1,3 +1,13 @@
+
+body.single-lesson {
+
+  section.container > .row:nth-child(2) {
+    background: $white !important;
+  }
+
+}
+
+
 .lesson-single {
 
   h3 {
@@ -6,11 +16,11 @@
   }
 
   section.title {
-    padding: 2rem 0;
+    margin: 2rem 0;
+    color: $lesson-blue;
   }
 
   section.embedded-content {
-    margin-bottom: 4rem;
     .embed-container {
       position: relative;
       padding-bottom: 56.25%;
@@ -27,10 +37,20 @@
     }
 
     .vid-actions {
-      margin: 1rem 0;
-      li {
+      margin: 1rem 0 2rem 0;
+      li:first-child {
         margin-left: 0;
-        margin-right: 0.5rem;
+      }
+      li span:before {
+        content: "";
+        margin-left: 0.5rem;
+      }
+      a {
+        border-bottom: 3px solid transparent;
+        color: $black;
+      }
+      a:hover {
+        border-bottom: 3px solid $lesson-orange;
       }
     }
   }
@@ -40,6 +60,21 @@
     h3 {
       padding-bottom: 0.5rem;
       border-bottom: 2px solid $lesson-blue;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      li {
+        padding-left: 1em;
+        text-indent: -.7em;
+        &:before {
+          content: "\002022";
+          color: $lesson-blue;
+          padding-right: 7px;
+        }
+      }
     }
   }
 

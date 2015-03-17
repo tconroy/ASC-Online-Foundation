@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php //get_template_part('parts/lessons-subnav'); ?>
+<?php get_template_part('parts/lessons-subnav'); ?>
 
 <div class="row">
 	<div class="small-12 medium-9 columns lesson-single" role="main">
@@ -9,16 +9,27 @@
 	<?php while (have_posts()) : the_post(); ?>
 
 		<?php
-			$vid_url  = get_field('lesson_video_url');
-  		$vid_code = explode('=', $vid_url)[1];
+			$vid_url      = get_field('lesson_video_url');
+  		$vid_code     = explode('=', $vid_url)[1];
+			$json_output  = file_get_contents("http://gdata.youtube.com/feeds/api/videos/".$vid_code."?v=2&alt=json&prettyprint=true");
+			$json         = json_decode($json_output, true);
+			$vid_title    = get_the_title();
+			$vid_date     = get_the_date();
+			$vid_desc     = get_field('lesson_video_description');
+			$vid_views    = $json['entry']['yt$statistics']['viewCount'];
+			$vid_length   = date('i:s', mktime(0,0, $json['entry']['media$group']['media$content'][0]['duration']));
+			$vid_tips     = get_field('lesson_video_tips');
 		 ?>
 
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 			<!-- article header -->
 			<section class="title">
-				<h3><?= the_title(); ?></h3>
-				<span>Length</span>
-				<span>Views</span>
+				<h3><?= $vid_title ?></h3>
+				<span title="lesson length">
+					<i class='fa fa-clock-o'></i> <?= $vid_length ?>
+				</span>
+				<span> | </span>
+				<span title="lesson views"><?= $vid_views ?> Views</span>
 			</section>
 			<!-- /article header -->
 
@@ -29,20 +40,20 @@
 				</div>
 	      <ul class="inline-list vid-actions">
 	        <li><a href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>
-	        <li><a href="#"><i class="fa fa-envelope"><span>Share</span></i></a></li>
-	        <li><a href="#"><i class="fa fa-download"><span>Download Attachments</span></i></a></li>
+	        <li><a class="share" href="#" data-target="<?= the_permalink(); ?>"><i class="fa fa-share-alt"><span>Share</span></i></a></li>
+	        <li><a href="#"><i class="fa fa-download"><span>Download Lesson Files</span></i></a></li>
 	      </ul>
 			</section>
 			 <!-- /YouTube Video Container -->
 
 			<section class="lesson-content">
 				<h3>Video Overview</h3>
-				<p><?= get_field('lesson_video_description'); ?></p>
+				<p><?= $vid_desc ?></p>
 
 				<?php
-					if( get_fields('lesson_video_tips') ) {
+					if( $vid_tips ) {
 						echo "<h3>Video Takeaways</h3>";
-						echo "<p>".get_field('lesson_video_tips')."</p>";
+						echo "<p>{$vid_tips}</p>";
 					}
 				 ?>
 			</section>

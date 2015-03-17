@@ -14,26 +14,35 @@ var ASCOHome = (function($){
 
   var _initHomeCarousel = function(){
     $('.inner-carousel').slick({
-      lazyLoad:      'ondemand',
-      accessibility: false,
-      autoplay:      true,
-      autoplaySpeed: 2500,
-      arrows:        false,
-      draggable:     false,
-      slide:         '.slide'
+      lazyLoad:       'ondemand',
+      slide:          '.slide',
+      accessibility:  false,
+      autoplay:       true,
+      autoplaySpeed:  2500,
+      arrows:         false,
+      draggable:      false,
+      slidesToShow:   1,
+      slidesToScroll: 1
     });
   };
 
-  var _initYouTubeLazyLoad = function() {
-    // load plugins
+  var _initPlugins = function() {
     jQuery('.lazyYT').lazyYT();
-  }
+    new WOW().init();
+  };
+
+  var _bindLessonMenuToScroll = function() {
+
+    // todo
+
+  };
 
   var init = function(){
     console.log('ASCOHome::init() fired.');
     _moveOffCanvasLink();
     _initHomeCarousel();
-    _initYouTubeLazyLoad();
+    _bindLessonMenuToScroll();
+    _initPlugins();
   };
 
   return {

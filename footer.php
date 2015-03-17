@@ -16,7 +16,7 @@
     <div class="row">
       <div class="small-12 medium-9 small-centered columns">
         <ul class="small-block-grid-3" data-equalizer-watch>
-          <li>
+          <li class="wow bounceIn">
             <a href="http://www.rit.edu/studentaffairs/asc">
               <figure data-equalizer>
                 <img src="<?= bloginfo('template_directory').'/assets/img/footer-icons/browser.png'?>" alt="">
@@ -24,7 +24,7 @@
               </figure>
             </a>
           </li>
-          <li>
+          <li class="wow bounceIn">
             <a href="http://www.rit.edu/studentaffairs/asc/schedules.php">
               <figure data-equalizer>
                 <img src="<?= bloginfo('template_directory').'/assets/img/footer-icons/schedule.png'?>" alt="">
@@ -32,7 +32,7 @@
               </figure>
             </a>
           </li>
-          <li>
+          <li class="wow bounceIn">
             <a href="<?= get_page_link(15); ?>">
               <figure data-equalizer>
                 <img src="<?= bloginfo('template_directory').'/assets/img/footer-icons/email.png'?>" alt="">
@@ -48,7 +48,6 @@
   <div class="stay-connected text-center">
     <div class="row">
       <div class="small-12 small-centered columns">
-        <!-- <h2>Visit <a href="">ASC</a> and Stay Connected</h2> -->
         <h2>CONNECT WITH US</h2>
       </div>
     </div>
@@ -65,12 +64,6 @@
     </div>
     <div class="row copywrite">
       <div class="small-12 medium-9 small-centered columns">
-<!--         <ul class="small-block-grid-7">
-          <li>&copy; 2015 <a href="http://www.rit.edu">RIT</a></li>
-          <li><a href="http://www.rit.edu/studentaffairs/">Student Affairs</a></li>
-          <li><a href="http://www.rit.edu/studentaffairs/asc/">Academic Support Center</a></li>
-          <li>All Rights Reserved.</li>
-        </ul> -->
         <ul>
           <li>&copy; <?= Date('Y'); ?> <a href="http://www.rit.edu">Rochester Institute of Technology</a></li>
           <li>|</li>
