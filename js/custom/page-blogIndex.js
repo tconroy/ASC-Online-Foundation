@@ -34,8 +34,13 @@ var ASCOBlogIndex = (function($){
     });
   };
 
+  var _bindPlugins = function() {
+    new WOW().init();
+  }
+
   var init = function(){
     console.log('ASCOBlogIndex::init() fired.');
+    _bindPlugins();
     _bindRevealLinks();
     _bindBackToTop();
   };

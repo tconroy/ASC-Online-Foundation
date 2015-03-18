@@ -11,10 +11,10 @@
         </h2>
       </div> <!-- .section-title -->
 
-      <div class="small-12 medium-10 medium-offset-1">
+      <div class="small-12 medium-10 medium-offset-1 wow fadeInUpBig">
         <div class="small-12 medium-5 medium-push-7 columns">
           <figure>
-            <a href="http://maps.rit.edu/embed.php?zoom=21&lat=43.084790235380794&lng=-77.67410930290224&open=p-24&start=0&rows=10">
+            <a class="hvr-curl-top-right" href="http://maps.rit.edu/embed.php?zoom=21&lat=43.084790235380794&lng=-77.67410930290224&open=p-24&start=0&rows=10">
               <img class="th" src="<?= bloginfo('template_directory').'/assets/img/contact/map.png'?>">
             </a>
             <figcaption class="medium-offset-1">
@@ -79,7 +79,7 @@
 
     <!-- ======================================= -->
 
-    <div class="row content-section">
+    <div class="row content-section wow fadeInUpBig">
 
       <div class="section-title">
         <h2>

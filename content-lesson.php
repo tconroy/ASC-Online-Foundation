@@ -22,7 +22,7 @@
     $vid_desc_short = substr($vid_desc, 0, strrpos(substr($vid_desc, 0, 90), ' ')) . '...';
   ?>
 
-  <li class="vid-panel">
+  <li class="vid-panel wow fadeInDown">
     <a href="<?= the_permalink(); ?>">
       <div class="vid-thumbnail">
         <?= "<img class='lazy-thumb' src='{$placeholderimg}' data-src='http://img.youtube.com/vi/{$vid_code}/hqdefault.jpg' />"?>

@@ -15,28 +15,28 @@
     </div>
     <div class="row">
       <div class="small-12 medium-9 small-centered columns">
-        <ul class="small-block-grid-3" data-equalizer-watch>
-          <li class="wow bounceIn">
+        <ul class="small-block-grid-3" data-equalizer-watch="learnmore">
+          <li>
             <a href="http://www.rit.edu/studentaffairs/asc">
-              <figure data-equalizer>
+              <figure data-equalizer="learnmore" class="hvr hvr-grow">
                 <img src="<?= bloginfo('template_directory').'/assets/img/footer-icons/browser.png'?>" alt="">
                 <figcaption>Website</figcaption>
               </figure>
             </a>
           </li>
-          <li class="wow bounceIn">
+          <li>
             <a href="http://www.rit.edu/studentaffairs/asc/schedules.php">
-              <figure data-equalizer>
+              <figure data-equalizer="learnmore" class="hvr hvr-grow">
                 <img src="<?= bloginfo('template_directory').'/assets/img/footer-icons/schedule.png'?>" alt="">
                 <figcaption>Schedules</figcaption>
               </figure>
             </a>
           </li>
-          <li class="wow bounceIn">
+          <li>
             <a href="<?= get_page_link(15); ?>">
-              <figure data-equalizer>
+              <figure data-equalizer="learnmore" class="hvr hvr-grow">
                 <img src="<?= bloginfo('template_directory').'/assets/img/footer-icons/email.png'?>" alt="">
-                <figcaption>Contact</figcaption>
+                <figcaption style="margin-left: 35%;">Contact</figcaption>
               </figure>
             </a>
           </li>
@@ -54,10 +54,10 @@
     <div class="row">
       <div class="small-12 medium-6 small-centered columns">
         <ul class="small-block-grid-4 social">
-          <li><a href="https://www.facebook.com/RITAcademicSupportCenter"><img src="<?= bloginfo('template_directory').'/assets/img/social-icons/circle/facebook.png'?>" alt="Facebook"></a></li>
-          <li><a href="https://instagram.com/ascatrit/"><img src="<?= bloginfo('template_directory').'/assets/img/social-icons/circle/instagram.png'?>" alt="Instagram"></a></li>
-          <li><a href="https://twitter.com/ASCatRIT"><img src="<?= bloginfo('template_directory').'/assets/img/social-icons/circle/twitter.png'?>" alt="Twitter"></a></li>
-          <li><a href="https://www.youtube.com/user/ASCatRIT"><img src="<?= bloginfo('template_directory').'/assets/img/social-icons/circle/youtube.png'?>" alt="YouTube"></a></li>
+          <li><a class="hvr-float-shadow" href="https://www.facebook.com/RITAcademicSupportCenter"><img src="<?= bloginfo('template_directory').'/assets/img/social-icons/circle/facebook.png'?>" alt="Facebook"></a></li>
+          <li><a class="hvr-float-shadow" href="https://instagram.com/ascatrit/"><img src="<?= bloginfo('template_directory').'/assets/img/social-icons/circle/instagram.png'?>" alt="Instagram"></a></li>
+          <li><a class="hvr-float-shadow" href="https://twitter.com/ASCatRIT"><img src="<?= bloginfo('template_directory').'/assets/img/social-icons/circle/twitter.png'?>" alt="Twitter"></a></li>
+          <li><a class="hvr-float-shadow" href="https://www.youtube.com/user/ASCatRIT"><img src="<?= bloginfo('template_directory').'/assets/img/social-icons/circle/youtube.png'?>" alt="YouTube"></a></li>
       </ul>
       </div>
 

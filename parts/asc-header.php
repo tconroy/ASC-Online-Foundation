@@ -1,4 +1,4 @@
-<header class="">
+<header>
 
 <div class="contain-to-grid" id="banner">
     <?php
@@ -34,32 +34,32 @@
       </div>
       <div class="small-12 medium-5 columns">
         <ul class="inline-list social show-for-medium-up">
-          <li>
+          <li class="hvr-grow">
             <a href="https://www.facebook.com/RITAcademicSupportCenter"><img src="<?= get_template_directory_uri().'/assets/img/social-icons/white/facebook.png'?>"></a>
           </li>
-          <li>
+          <li class="hvr-grow">
             <a href="https://twitter.com/ASCatRIT"><img src="<?= get_template_directory_uri().'/assets/img/social-icons/white/twitter.png'?>"></a>
           </li>
-          <li>
+          <li class="hvr-grow">
             <a href="https://instagram.com/ascatrit/"><img src="<?= get_template_directory_uri().'/assets/img/social-icons/white/instagram.png'?>"></a>
           </li>
-          <li>
+          <li class="hvr-grow">
             <a href="https://www.youtube.com/user/ASCatRIT"><img src="<?= get_template_directory_uri().'/assets/img/social-icons/white/youtube.png'?>"></a>
           </li>
         </ul>
 
         <ul class="small-block-grid-4 show-for-small-only">
-          <li>
-            <a href=""><img src="<?= get_template_directory_uri().'/assets/img/social-icons/white/facebook.png'?>"></a>
+          <li class="hvr-grow">
+            <a href="https://www.facebook.com/RITAcademicSupportCenter"><img src="<?= get_template_directory_uri().'/assets/img/social-icons/white/facebook.png'?>"></a>
           </li>
-          <li>
-            <a href=""><img src="<?= get_template_directory_uri().'/assets/img/social-icons/white/twitter.png'?>"></a>
+          <li class="hvr-grow">
+            <a href="https://twitter.com/ASCatRIT"><img src="<?= get_template_directory_uri().'/assets/img/social-icons/white/twitter.png'?>"></a>
           </li>
-          <li>
-            <a href=""><img src="<?= get_template_directory_uri().'/assets/img/social-icons/white/instagram.png'?>"></a>
+          <li class="hvr-grow">
+            <a href="https://instagram.com/ascatrit/"><img src="<?= get_template_directory_uri().'/assets/img/social-icons/white/instagram.png'?>"></a>
           </li>
-          <li>
-            <a href=""><img src="<?= get_template_directory_uri().'/assets/img/social-icons/white/youtube.png'?>"></a>
+          <li class="hvr-grow">
+            <a href="https://www.youtube.com/user/ASCatRIT"><img src="<?= get_template_directory_uri().'/assets/img/social-icons/white/youtube.png'?>"></a>
           </li>
         </ul>
       </div>

@@ -3,7 +3,7 @@
         <nav class="top-bar" id="primary-nav" data-topbar role="navigation" data-options="is_hover: false">
             <ul class="title-area">
                 <li class="name">
-                    <a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>">
+                    <a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" class="hvr-grow">
                         <img alt="<?php bloginfo('name');?>" src="<?= get_template_directory_uri().'/assets/img/nav/asco-logo.png' ?>" style="width: 6em; height: 6em;">
                     </a>
                 </li>

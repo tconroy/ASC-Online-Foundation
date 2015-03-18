@@ -15,26 +15,35 @@ $(document).ready(function(){
     }
   });
 
-  // load page-specific modules
-  switch ( page_title ) {
-    case "Home": ASCOHome.init(); break;
-    case "Facebook": ASCOFacebook.init(); break;
-
-    // case "Contact":
-    //   ASCOContact.init();
-    // break;
-  }
   // load class-specific modules
   $body = $('body');
-  if( $body.hasClass('blog') ) {
+
+  // HOME PAGE
+  if( $body.hasClass('home') ) {
+    ASCOHome.init();
+  }
+  // CONTACT PAGE
+  else if ( $body.hasClass('page-id-15') || page_title == 'Contact' ) {
+    ASCOContact.init();
+  }
+  // FACEBOOK PAGE
+  else if ( $body.hasClass('page-id-33') || page_title == 'Facebook' ) {
+    ASCOFacebook.init();
+  }
+  // BLOG POST INDEX PAGE
+  else if( $body.hasClass('blog') ) {
     ASCOBlogIndex.init();
   }
-  // Lessons Index Page
-  if( $body.hasClass('post-type-archive-lesson') || $body.hasClass('tax-subjects') ) {
+  // LESSON POST INDEX PAGE
+  else if( $body.hasClass('post-type-archive-lesson') || $body.hasClass('tax-subjects') ) {
     ASCOLessonsIndex.init();
   }
-  // single lessons page
-  if ( $body.hasClass('single-lesson') ) {
+  // SINGLE LESSON PAGE
+  else if ( $body.hasClass('single-lesson') ) {
     ASCOLessonsIndex.initShareBtn();
+  }
+  // ARCHIVE PAGE
+  else if ( $body.hasClass('archive') ) {
+    ASCOArchivePage.init();
   }
 });

@@ -14,7 +14,7 @@
 					<?php endwhile; ?>
 
 					<?php else : ?>
-						<?php get_template_part( 'content', 'none' ); ?>
+						<?php get_template_part( 'content', 'none-lesson' ); ?>
 
 				<?php endif; // end have_posts() check ?>
 			</ul>
