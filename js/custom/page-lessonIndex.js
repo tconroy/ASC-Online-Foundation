@@ -26,6 +26,7 @@ var ASCOLessonsIndex = (function($){
     });
   };
 
+  /*
   var _bindLazyThumbLoad = function() {
     $('body').on( 'post-load', function () {
       // New posts have been added to the page.
@@ -37,8 +38,7 @@ var ASCOLessonsIndex = (function($){
         });
       });
     });
-    // $("img.lazy-thumb").unveil();
-  };
+  };*/
 
   /**
    * Force Foundation Equalizer to paint a reflow on new lessons loaded via ajax infinite-scroll
@@ -68,14 +68,42 @@ var ASCOLessonsIndex = (function($){
     new WOW().init();
   };
 
+  var _bindOnFavoriteClick = function() {
+    $('div[role="main"]').on('click', 'a.favorite', function(e) {
+      e.preventDefault();
+      var $elem  = $(this);
+      var $heart = $elem.children('i.fa-heart');
+      var $text  = $heart.children('span');
+
+      // if not already a favorite:
+      if( ! $elem.data('favorite') ) {
+        $elem.data('favorite', true);
+        $heart.addClass('favorited');
+        $text.text('favorited');
+        // only show the notification once to prevent spamming
+        if ( ! $elem.data('hadAlert') ) {
+          alertify.success('Thanks for your feedback!');
+        }
+        $elem.data('hadAlert', true);
+      } else {
+        $elem.data('favorite', false);
+        $heart.removeClass('favorited');
+        $text.text('favorite');
+        return;
+      }
+
+    });
+  }
+
   var init = function(){
     console.log('ASCOLessonIndex::init() fired.');
-    _bindLazyThumbLoad();
+    //_bindLazyThumbLoad();
     _bindPlugin();
     _bindCopyToClipboard();
     _bindBackToTop();
     _moveSpinnersToBottomOfPage();
     _bindEqualizerReflowOnNewPosts();
+    _bindOnFavoriteClick();
   };
 
   return {

@@ -39,15 +39,16 @@ module.exports = function(grunt) {
     },
 
     // TODO: setup autoprefixer
-    // autoprefixer: {
-    //   options: {
-    //     // Task-specific options go here.
-    //     browsers: ['last 2 versions', 'ie 8', 'ie 9']
-    //   },
-    //   your_target: {
-    //     // Target-specific file lists and/or options go here.
-    //   },
-    // },
+    autoprefixer:{
+      options: {
+        browsers: ['last 3 versions', 'ie 8', 'ie 9']
+      },
+      dist:{
+        files:{
+          'css/foundation.css':'css/foundation.css'
+        }
+      }
+    },
 
 
       'string-replace': {
@@ -99,7 +100,6 @@ module.exports = function(grunt) {
           'bower_components/alertify.js/lib/alertify.js',
 
           // include vendor js
-          'js/vendor/jquery.unveil.js',
           'js/vendor/wow.js',
 
           // Using all of your custom js files
@@ -126,6 +126,11 @@ module.exports = function(grunt) {
       sass: {
         files: 'scss/**/*.scss',
         tasks: ['sass']
+      },
+
+      styles: {
+        files: 'css/foundation.css',
+        task: ['autoprefixer']
       }
     }
   });
@@ -138,6 +143,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-string-replace');
 
-  grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'concat', 'uglify']);
+  grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'autoprefixer:dist', 'concat', 'uglify']);
   grunt.registerTask('default', ['watch']);
 };

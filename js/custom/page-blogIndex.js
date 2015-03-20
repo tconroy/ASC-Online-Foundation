@@ -38,9 +38,18 @@ var ASCOBlogIndex = (function($){
     new WOW().init();
   }
 
+  var _moveSpinnersToBottomOfPage = function() {
+    $('#content').on('DOMNodeInserted', function(e) {
+      if ($(e.target).is('.infinite-loader')) {
+         $(e.target).insertAfter('#content');
+      }
+    });
+  };
+
   var init = function(){
     console.log('ASCOBlogIndex::init() fired.');
     _bindPlugins();
+    //_moveSpinnersToBottomOfPage();
     _bindRevealLinks();
     _bindBackToTop();
   };

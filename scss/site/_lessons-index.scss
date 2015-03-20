@@ -104,16 +104,19 @@
 
   .vid-actions {
     a {
-      color: $black;
+      color: $black !important;
       padding: 5px;
       &:hover {
         border-bottom: none;
-        color: $lesson-orange;
+        color: $lesson-red !important;
       }
     }
     i {
       &.fa-heart {
         color: $asc-mediumgray;
+        span:hover {
+          color: $lesson-red;
+        }
       }
       span:before {
         content: "";

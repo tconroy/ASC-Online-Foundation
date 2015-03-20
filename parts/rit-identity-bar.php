@@ -16,15 +16,23 @@
                 <li><a href="#">Directories</a></li>
                 <!-- Search | has-form wrapper -->
                 <li class="has-form">
-                    <form action="<?= get_site_url();?>" method="get" role="search">
-                        <div class="row collapse">
-                            <div class="small-9 columns">
-                                <input type="text" name="s" id="s" placeholder="Search">
+                    <form action="<?= get_site_url(); ?>" method="GET" role="search">
+                        <row class="collapse">
+                            <div class="row">
+                              <div class="small-12 columns">
+                                <div class="row collapse postfix-round">
+                                  <div class="small-9 columns">
+                                    <input type="text" name="s" id="s" placeholder="Search" value="<?php if ( isset($_GET['s']) ) { echo $_GET['s']; } else { echo ""; }?>"/>
+                                  </div>
+                                  <div class="small-3 columns">
+                                    <button type="submit" class="button postfix">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-                            <div class="small-3 columns">
-                                <input type="submit" class="button expand" value="Search">
-                            </div>
-                        </div>
+                        </row>
                     </form>
                 </li>
             </ul>

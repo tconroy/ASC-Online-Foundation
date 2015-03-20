@@ -41,7 +41,7 @@
 	      <ul class="inline-list vid-actions">
 	        <li><a href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>
 	        <li><a class="share" href="#" data-target="<?= the_permalink(); ?>"><i class="fa fa-share-alt"><span>Share</span></i></a></li>
-	        <li><a href="#"><i class="fa fa-download"><span>Download Lesson Files</span></i></a></li>
+	        <li><a href="#"><i class="fa fa-download"><span>Lesson Files</span></i></a></li>
 	      </ul>
 			</section>
 			 <!-- /YouTube Video Container -->

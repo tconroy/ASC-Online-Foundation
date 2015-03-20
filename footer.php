@@ -2,7 +2,7 @@
 
 <a href="#" alt="to top" title="to top of page" class="topbutton"><span><i class="fa fa-chevron-up"></i></span></a>
 
-<footer class="pagefooter">
+<footer class="pagefooter" id="footer">
 	<?php do_action('foundationPress_before_footer'); ?>
 	<?php dynamic_sidebar("footer-widgets"); ?>
 	<?php do_action('foundationPress_after_footer'); ?>

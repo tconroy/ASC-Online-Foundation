@@ -25,7 +25,7 @@
   <li class="vid-panel wow fadeInDown">
     <a href="<?= the_permalink(); ?>">
       <div class="vid-thumbnail">
-        <?= "<img class='lazy-thumb' src='{$placeholderimg}' data-src='http://img.youtube.com/vi/{$vid_code}/hqdefault.jpg' />"?>
+        <?= "<img src='http://img.youtube.com/vi/{$vid_code}/hqdefault.jpg' />"?>
         <span class="overlay"><i class="fa fa-play-circle"></i></span>
         <h5>
           <span><?= $vid_length ?></span>
@@ -37,7 +37,7 @@
       <a href="<?= the_permalink(); ?>"><h4><?= $vid_title ?></h4></a>
       <p data-equalizer-watch="vidpanel"><?= $vid_desc_short ?></p>
       <ul class="inline-list center-text vid-actions">
-        <li><a href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>
+        <li><a class="favorite" href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>
         <li><a class="share" data-target="<?= the_permalink(); ?>" href="#"><i class="fa fa-share-alt"><span>Share</span></i></a></li>
         <li><a href="#"><i class="fa fa-download"><span>PDF</span></i></a></li>
       </ul>

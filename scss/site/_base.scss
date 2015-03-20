@@ -218,19 +218,27 @@ a.expand-excerpt, a.collapse-excerpt {
 	font-weight: 200 !important;
 }
 
+// state styling for favorite button on lesson videos
+i.fa-heart.favorited {
+	&:before {
+		color: $lesson-red;
+		@extend .animated;
+		@extend .tada;
+	}
+	span {
+		color: $black;
+	}
+}
+
 
 // button that takes user to top of page
 .topbutton {
 	height:50px;
 	width:50px;
 	position:fixed;
-	// right:5px;
-	// bottom:5px;
 	right:5%;
 	bottom:5%;
 	z-index:1;
-	// background-image: url("http://example.com/wp-content/uploads/2015/01/topbutton.png");
-	// background-repeat:no-repeat;
 	background: transparent;
 	border: 3px solid $asc-lightgray;
 	display:none;
