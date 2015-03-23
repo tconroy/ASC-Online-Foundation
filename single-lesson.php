@@ -19,6 +19,7 @@
 			$vid_views    = $json['entry']['yt$statistics']['viewCount'];
 			$vid_length   = date('i:s', mktime(0,0, $json['entry']['media$group']['media$content'][0]['duration']));
 			$vid_tips     = get_field('lesson_video_tips');
+			$vid_download = get_field('lesson_video_attachments');
 		 ?>
 
 		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
@@ -41,7 +42,15 @@
 	      <ul class="inline-list vid-actions">
 	        <li><a href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>
 	        <li><a class="share" href="#" data-target="<?= the_permalink(); ?>"><i class="fa fa-share-alt"><span>Share</span></i></a></li>
-	        <li><a href="#"><i class="fa fa-download"><span>Lesson Files</span></i></a></li>
+         <?php if($vid_download) : ?>
+            <li><a download href="<?= $vid_download['url'] ?>" class="attachment" title="<?= $vid_download['title'] ?>"><i class="fa fa-download"><span>Resources</span></i></a></li>
+         <?php else : ?>
+            <li>
+              <a href="#" class="attachment disabled" onclick="return false;" title="No attachments">
+                <i class="fa fa-download"><span>Resources</span></i>
+              </a>
+            </li>
+         <?php endif; ?>
 	      </ul>
 			</section>
 			 <!-- /YouTube Video Container -->
@@ -78,6 +87,7 @@
 	<?php do_action('foundationPress_after_content'); ?>
 
 	</div>
+
 	<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>

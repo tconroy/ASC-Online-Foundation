@@ -7,7 +7,7 @@
       if ( is_front_page() ) {
         $uri .= 'home.png';
       }
-      else if ( is_page('Lessons') || is_tax('subjects') ) {
+      else if ( is_post_type_archive('lesson') || is_tax('subjects') ) {
         $uri .= get_lessons_page_header();
       }
       else if ( is_page('Series') ) {

@@ -1,4 +1,23 @@
 <?php
+add_filter('wp_nav_menu_items','add_search_box_to_menu', 10, 2);
+function add_search_box_to_menu( $items, $args ) {
+    if( $args->theme_location == 'mobile-off-canvas' ) {
+
+      $action = home_url('/');
+      $value = get_search_query();
+
+      return "
+      <li class='mobile-menu-search'>
+        <form action='{$action}' method='get'>
+            <input type='text' name='s' id='s' placeholder='Search'
+                  value='{$value}'>
+        </form>
+      </li>".$items;
+
+    }
+
+    return $items;
+}
 /**
  * Redirects user to browser update page if older than IE9.
  */
@@ -31,7 +50,7 @@ if( !function_exists('get_lessons_page_header') ) :
         case "tutoring":        $out .= "tutoring"; break;
       }
     } else {
-      $out .= 'onlineLearning';
+      $out .= 'all';
     }
     return $out.'.png';
   }
@@ -82,7 +101,20 @@ if( !function_exists('get_avatar_url') ) :
 endif;
 
 
-
+/**
+ * allows custom definition of post count per page type
+ * ( archive, search, etc. )
+ */
+if ( !function_exists('postsperpage') ) :
+  function postsperpage($limits) {
+    if (is_search()) {
+      global $wp_query;
+      $wp_query->query_vars['posts_per_page'] = 100;
+    }
+    return $limits;
+  }
+  add_filter('post_limits', 'postsperpage');
+endif;
 
 
 /**
@@ -169,21 +201,6 @@ if ($post_types) :
 
 endif;
 }
-
-/**
- * Group search results into groups via post type
- */
-if ( !function_exists('group_by_post_type') ) :
-  add_filter('posts_orderby', 'group_by_post_type', 10, 2);
-  function group_by_post_type($orderby, $query) {
-  global $wpdb;
-  if ($query->is_search) {
-      return $wpdb->posts . '.post_type DESC';
-  }
-  // provide a default fallback return if the above condition is not true
-  return $orderby;
-  }
-endif;
 
 
 /**

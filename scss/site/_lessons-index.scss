@@ -111,6 +111,15 @@
         color: $lesson-red !important;
       }
     }
+
+    a.attachment {
+      &.disabled {
+        i.fa-download {
+          color: $asc-mediumgray;
+        }
+      }
+    }
+
     i {
       &.fa-heart {
         color: $asc-mediumgray;

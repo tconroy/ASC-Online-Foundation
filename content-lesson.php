@@ -20,6 +20,7 @@
     $vid_views = $json['entry']['yt$statistics']['viewCount'];
     $vid_length = date('i:s', mktime(0,0, $json['entry']['media$group']['media$content'][0]['duration']));
     $vid_desc_short = substr($vid_desc, 0, strrpos(substr($vid_desc, 0, 90), ' ')) . '...';
+    $vid_download = get_field('lesson_video_attachments');
   ?>
 
   <li class="vid-panel wow fadeInDown">
@@ -39,7 +40,15 @@
       <ul class="inline-list center-text vid-actions">
         <li><a class="favorite" href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>
         <li><a class="share" data-target="<?= the_permalink(); ?>" href="#"><i class="fa fa-share-alt"><span>Share</span></i></a></li>
-        <li><a href="#"><i class="fa fa-download"><span>PDF</span></i></a></li>
+         <?php if($vid_download) : ?>
+            <li><a download href="<?= $vid_download['url'] ?>" class="attachment" title="<?= $vid_download['title'] ?>"><i class="fa fa-download"><span>PDF</span></i></a></li>
+         <?php else : ?>
+            <li>
+              <a href="#" class="attachment disabled" onclick="return false;" title="No attachments">
+                <i class="fa fa-download"><span>PDF</span></i>
+              </a>
+            </li>
+         <?php endif; ?>
       </ul>
     </div>
   </li>

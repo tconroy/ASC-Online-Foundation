@@ -46,4 +46,10 @@ $(document).ready(function(){
   else if ( $body.hasClass('archive') ) {
     ASCOArchivePage.init();
   }
+  // SEARCH PAGE
+  else if ( $body.hasClass('search') ) {
+    ASCOSearchPage.init();
+    ASCOLessonsIndex.initShareBtn();
+    ASCOLessonsIndex.initFavoriteBtn();
+  }
 });

@@ -108,7 +108,8 @@ var ASCOLessonsIndex = (function($){
 
   return {
       init: init,
-      initShareBtn: _bindCopyToClipboard
+      initShareBtn: _bindCopyToClipboard,
+      initFavoriteBtn: _bindOnFavoriteClick
   };
 
 })(jQuery);

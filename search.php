@@ -1,91 +1,93 @@
 <?php get_header(); ?>
-<?php global $wp_query; ?>
+
+
+<?php if( !empty(get_search_query()) ) :  ?>
+
+
 <div class="row">
-    <div class="small-12 columns" role="main">
-
+    <div class="small-8 small-centered columns">
+        <h2 style='display:inline;'>Search Results</h2><?php get_template_part('searchform'); ?>
+    </div>
+</div>
+<div class="row">
+    <div class="small-12 columns" role="main" id="content" >
         <?php do_action('foundationPress_before_content'); ?>
+        <?php
+            if( have_posts() ){
+                // get results count
+                $types = wp_list_pluck($wp_query->posts,'post_type');
+                $types_count = array_count_values($types);
 
-        <h2 class='text-center'>Searching For <span style='color: orange;'><?= get_search_query(); ?></span><br> <small><?= $wp_query->found_posts; ?> Results </small></h2>
+                $count = [
+                    'post'   => ( isset($types_count['post'])   ? (int)$types_count['post'] : 0 ),
+                    'lesson' => ( isset($types_count['lesson']) ? (int)$types_count['lesson'] : 0 ),
+                    'series' => ( isset($types_count['series']) ? (int)$types_count['series'] : 0 )
+                ];
 
-<?php
-// query_posts($query_string . '&showposts=10');
-if( have_posts() ){
-echo "<ul class='accordion' data-accordion>";
-    $types = array('post', 'lesson', 'series');
+                echo "<ul class='tabs' data-tab>
+                    <li class='tab-title active'><a href='#post-panel'>Blog ({$count['post']})</a></li>
+                    <li class='tab-title'><a href='#lesson-panel'>Lessons ({$count['lesson']})</a></li>
+                    <li class='tab-title'><a href='#series-panel'>Series Episodes ({$count['series']})</a></li>
+                </ul>
+                <div class='tabs-content'>";
 
-    $count = ['post' => 0, 'lesson' => 0, 'series' => 0];
 
-    /* for each post type, */
-    foreach( $types as $type ){
-        $title;
-        $active = [ $type => '' ];
+                $types = ['post', 'lesson', 'series'];
+                foreach( $types as $type ){
 
-        // determine what post types we have for setting accordion open/closed state
-        while( have_posts() ) {
-            the_post();
-            $pt = get_post_type();
-            $active[$pt] = 'active';
+                    // open inner container
+                    $active = ( $type == 'post' ? 'active' : '' );
+                    echo "<div class='content {$active}' id='{$type}-panel'>";
 
-            if ( in_array($pt, $types) ) {
-                $count[$pt] += 1;
+                    // add UL container for videos
+                    if ( $type == 'lesson' || $type == 'series' ) {
+                        echo '<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-equalizer="vidpanel">';
+                    }
+
+                    // insert post content template
+                    while( have_posts() ){
+                        the_post();
+
+                        if ( $count[$type] == 0 ) {
+                            echo "<h2 class='text-center'>No results found.</h2>";
+                            break;
+                        } elseif ($type == get_post_type()) {
+                            get_template_part('content', $type);
+                        }
+                    }
+                    rewind_posts();
+
+                    // close inner container
+                    if ( $type == 'lesson' || $type == 'series' ) {
+                        echo '</ul></div>';
+                    } else {
+                        echo '</div>';
+                    }
+                }
+            } else {
+                // no results found for query
+                get_template_part('content', 'none-lesson');
             }
-        }
-
-        switch($type) {
-            case "post":   $title = 'Blog Posts';    break;
-            case "lesson": $title = 'Video Lessons'; break;
-            case "series": $title = 'Video Series';  break;
-        }
-
-        /* create a section container + title */
-        echo "<li class='accordion-navigation {$type}'>";
-        echo "<a class='text-center' href='#panel-{$type}'><h3>{$title} ( {$count[$type]} results)</h3></a>";
-        echo "<div id='panel-{$type}' class='content {$active[$type]}'>";
-        /* if lesson section, open UL */
-        if ( $type == 'lesson' ){
-           echo '<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">';
-        }
-        /* Actual post loop */
-        while( have_posts() ){
-            the_post();
-            if( $type == get_post_type() ){
-                get_template_part('content', $type);
-            }
-        }
-
-        /* closing lesson UL container */
-        if ($type == 'lesson') {
-           echo '<ul>';
-        }
-        echo "</div>";
-        /* closing base section container */
-        echo "</li>";
-
-        /* go back to top of post stack */
-        rewind_posts();
-    }
-echo "</ul>";
-} else {
-    // no results found
-    get_template_part('content-none-lesson');
-}
-
- ?>
-
+            echo '</div>';
+        ?>
 
     <?php do_action('foundationPress_before_pagination'); ?>
 
     <?php if ( function_exists('FoundationPress_pagination') ) { FoundationPress_pagination(); } else if ( is_paged() ) { ?>
 
-        <nav class="row" id="post-nav">
+        <nav id="post-nav">
             <div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'FoundationPress' ) ); ?></div>
             <div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'FoundationPress' ) ); ?></div>
         </nav>
     <?php } ?>
 
+
+<?php else: ?>
+    <?php get_template_part('content', 'none-lesson'); ?>
+<?php endif; ?>
+
     <?php do_action('foundationPress_after_content'); ?>
 
-    </div>
     <?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

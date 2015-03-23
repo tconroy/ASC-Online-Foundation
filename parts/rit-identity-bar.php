@@ -22,7 +22,7 @@
                               <div class="small-12 columns">
                                 <div class="row collapse postfix-round">
                                   <div class="small-9 columns">
-                                    <input type="text" name="s" id="s" placeholder="Search" value="<?php if ( isset($_GET['s']) ) { echo $_GET['s']; } else { echo ""; }?>"/>
+                                    <input type="text" name="s" id="s" placeholder="Search" value="<?php the_search_query(); ?>"/>
                                   </div>
                                   <div class="small-3 columns">
                                     <button type="submit" class="button postfix">

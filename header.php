@@ -35,8 +35,8 @@
 		<!-- Custom script for storing page data into gvar -->
 		<script>
 		  <?php $pageDetails = get_post(); ?>
-  		var page_title = <?php echo json_encode( $pageDetails->post_title ); ?>;
-  		var page_slug  = <?php echo json_encode( $pageDetails->post_name  ); ?>;
+  		var page_title = <?php echo ( isset($pageDetails->post_title) ? json_encode( $pageDetails->post_title ) : 'null' ); ?>;
+  		var page_slug  = <?php echo ( isset($pageDetails->post_name) ? json_encode($pageDetails->post_name) : 'null' ); ?>;
 		</script>
 
 		<?php wp_head(); ?>

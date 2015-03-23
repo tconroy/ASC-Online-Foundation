@@ -1,8 +1,18 @@
 
 body.single-lesson {
 
+#sidebar {
+  margin-top: 3rem;
+}
+
+
+section.container[role=document] {
+  margin-bottom: 0;
+}
+
   section.container > .row:nth-child(2) {
     background: $white !important;
+    padding-bottom: 4rem;
   }
 
 }
@@ -46,11 +56,11 @@ body.single-lesson {
         margin-left: 0.5rem;
       }
       a {
-        border-bottom: 3px solid transparent;
         color: $black;
       }
       a:hover {
-        border-bottom: 3px solid $lesson-orange;
+        color: $lesson-red;
+        border-bottom: none;
       }
     }
   }
@@ -59,7 +69,7 @@ body.single-lesson {
   section.lesson-content {
     h3 {
       padding-bottom: 0.5rem;
-      border-bottom: 2px solid $lesson-blue;
+      border-bottom: 1px solid $lesson-blue;
     }
 
     ul {

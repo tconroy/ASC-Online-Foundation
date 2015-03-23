@@ -10,8 +10,12 @@ body {
 	font-family: "Open Sans";
 }
 
+// main container top/bottom margins for all pages EXCEPT home and contact
 section.container {
-	margin-bottom: 0;
+	margin: 4rem 0;
+}
+.home section.container, .page-id-15 section.container {
+	margin: 0 0;
 }
 
 // main content section container link styling
@@ -153,6 +157,14 @@ a[rel~="tag"] {
 
 #primary-nav {
 	opacity: 0.9;
+}
+
+// search field for mobile slide out menu
+.mobile-menu-search {
+	margin: 1rem;
+	input {
+		border-radius: 2rem;
+	}
 }
 
 // centering the infinite-scroll loading indicator
