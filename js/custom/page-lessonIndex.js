@@ -78,6 +78,7 @@ var ASCOLessonsIndex = (function($){
       // if not already a favorite:
       if( ! $elem.data('favorite') ) {
         $elem.data('favorite', true);
+        $elem.removeClass('disabled');
         $heart.addClass('favorited');
         $text.text('favorited');
         // only show the notification once to prevent spamming
@@ -88,6 +89,7 @@ var ASCOLessonsIndex = (function($){
       } else {
         $elem.data('favorite', false);
         $heart.removeClass('favorited');
+        $elem.addClass('disabled');
         $text.text('favorite');
         return;
       }

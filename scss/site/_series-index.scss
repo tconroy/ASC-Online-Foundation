@@ -1,0 +1,28 @@
+.page-template-page-series {
+
+  section.season {
+    background: $white;
+    header {
+      background: $lesson-orange;
+      h2 {
+        color: $white;
+        margin-bottom: 0;
+      }
+    }
+    div.body {
+      // .screenshot {
+      //   background-image: url("http://img.youtube.com/vi/AeUraxzZw3U/hqdefault.jpg");
+      // }
+      .screenshot {
+        background: url("http://img.youtube.com/vi/AeUraxzZw3U/hqdefault.jpg") no-repeat;
+        background-size: cover;
+      }
+
+      .content {
+
+      }
+    }
+  } // /section.season
+
+
+} // /.page-template-page-series

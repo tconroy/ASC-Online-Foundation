@@ -36,9 +36,9 @@
     </a>
     <div class="vid-body">
       <a href="<?= the_permalink(); ?>"><h4><?= $vid_title ?></h4></a>
-      <p data-equalizer-watch="vidpanel"><?= $vid_desc_short ?></p>
+      <p><?= $vid_desc_short ?></p>
       <ul class="inline-list center-text vid-actions">
-        <li><a class="favorite" href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>
+        <li><a class="favorite disabled" href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>
         <li><a class="share" data-target="<?= the_permalink(); ?>" href="#"><i class="fa fa-share-alt"><span>Share</span></i></a></li>
          <?php if($vid_download) : ?>
             <li><a download href="<?= $vid_download['url'] ?>" class="attachment" title="<?= $vid_download['title'] ?>"><i class="fa fa-download"><span>PDF</span></i></a></li>

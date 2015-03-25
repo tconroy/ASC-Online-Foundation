@@ -40,7 +40,7 @@
 					<iframe src='https://www.youtube.com/embed/<?= $vid_code; ?>' frameborder='0' allowfullscreen></iframe>
 				</div>
 	      <ul class="inline-list vid-actions">
-	        <li><a href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>
+	        <li><a class="favorite disabled" href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>
 	        <li><a class="share" href="#" data-target="<?= the_permalink(); ?>"><i class="fa fa-share-alt"><span>Share</span></i></a></li>
          <?php if($vid_download) : ?>
             <li><a download href="<?= $vid_download['url'] ?>" class="attachment" title="<?= $vid_download['title'] ?>"><i class="fa fa-download"><span>Resources</span></i></a></li>

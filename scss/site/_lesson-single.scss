@@ -2,7 +2,7 @@
 body.single-lesson {
 
 #sidebar {
-  margin-top: 3rem;
+  margin-top: 6.7rem;
 }
 
 
@@ -38,6 +38,7 @@ section.container[role=document] {
       overflow: hidden;
       max-width: 100%;
     }
+
     .embed-container iframe, .embed-container object, .embed-container embed {
       position: absolute;
       top: 0;
@@ -47,21 +48,8 @@ section.container[role=document] {
     }
 
     .vid-actions {
-      margin: 1rem 0 2rem 0;
-      li:first-child {
-        margin-left: 0;
-      }
-      li span:before {
-        content: "";
-        margin-left: 0.5rem;
-      }
-      a {
-        color: $black;
-      }
-      a:hover {
-        color: $lesson-red;
-        border-bottom: none;
-      }
+      position: relative;
+      margin: 1rem 0;
     }
   }
 
@@ -70,6 +58,7 @@ section.container[role=document] {
     h3 {
       padding-bottom: 0.5rem;
       border-bottom: 1px solid $lesson-blue;
+      margin-bottom: 1.5rem;
     }
 
     ul {
