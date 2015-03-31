@@ -69,7 +69,7 @@
 
             </div>
             <div class="small-12 columns">
-              <input type="submit" value="Submit" class="button small">
+              <input type="submit" value="Submit" class="button btn-holo">
             </div>
           </form>
         </div>
@@ -233,7 +233,7 @@
               </div>
               <div class="small-12 columns text-center">
                 <div style="padding-top: 2rem;">
-                  <input type="submit" value="Submit" class="button">
+                  <input type="submit" value="Submit" class="button btn-holo">
                 </div>
               </div>
             </div>

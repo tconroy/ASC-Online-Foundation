@@ -38,11 +38,7 @@ module.exports = function(grunt) {
 
     },
 
-    // TODO: setup autoprefixer
     autoprefixer:{
-      options: {
-        browsers: ['last 3 versions', 'ie 8', 'ie 9']
-      },
       dist:{
         files:{
           'css/foundation.css':'css/foundation.css'
@@ -101,6 +97,7 @@ module.exports = function(grunt) {
 
           // include vendor js
           'js/vendor/wow.js',
+          'js/vendor/timeago.js',
 
           // Using all of your custom js files
           'js/custom/*.js'
@@ -125,12 +122,7 @@ module.exports = function(grunt) {
 
       sass: {
         files: 'scss/**/*.scss',
-        tasks: ['sass']
-      },
-
-      styles: {
-        files: 'css/foundation.css',
-        task: ['autoprefixer']
+        tasks: ['sass', 'autoprefixer']
       }
     }
   });
@@ -143,6 +135,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-string-replace');
 
-  grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'autoprefixer:dist', 'concat', 'uglify']);
+  grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'autoprefixer', 'concat', 'uglify']);
   grunt.registerTask('default', ['watch']);
 };

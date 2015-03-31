@@ -15,6 +15,9 @@ $(document).ready(function(){
     }
   });
 
+  // load timeago plugin
+  jQuery("span.timeago").timeago();
+
   // load class-specific modules
   $body = $('body');
 

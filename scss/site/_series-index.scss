@@ -1,28 +1,133 @@
 .page-template-page-series {
 
-  section.season {
+  .inner-wrap {
     background: $white;
+  }
+
+  section.season {
+    margin-bottom: 5rem;
     header {
       background: $lesson-orange;
-      h2 {
+      h2, a {
         color: $white;
+        font-weight: 300;
         margin-bottom: 0;
+      }
+      a:hover{
+        border-bottom: none;
+        color: $lesson-red;
       }
     }
     div.body {
-      // .screenshot {
-      //   background-image: url("http://img.youtube.com/vi/AeUraxzZw3U/hqdefault.jpg");
+      background: $white;
+
+      .thumbcontainer {
+        padding-left: 0;
+        overflow: hidden;
+      }
+      // .thumb-bg {
+      //   background-color: #464646;
+      //   vertical-align: middle;
+      //   max-width: 720px;
       // }
-      .screenshot {
-        background: url("http://img.youtube.com/vi/AeUraxzZw3U/hqdefault.jpg") no-repeat;
+
+      .cover-bg-container {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .cover-bg {
+        background-position: center center;
+        background-repeat: no-repeat;
         background-size: cover;
+        background-color: #464646;
+        max-width: 100%;
+        height: auto;
+        @media #{$small-only} {
+          max-height: 300px !important;
+        }
       }
 
+
+      // content of season block
       .content {
 
+        a.title h3 {
+          color: $lesson-orange;
+          &:hover {
+            color: $lesson-red;
+          }
+        }
+        .vidstats {
+          @extend .breadcrumbs;
+          border: none;
+          background: transparent;
+          padding: 0;
+          margin: 0.5rem 0;
+        }
       }
     }
+
+    /**
+     * Episode thumbnails under season block
+     */
+
+    .episodes-header {
+      margin: 2rem 0 1rem 0;
+      h3 { display: inline !important; }
+      a, .viewall {
+        display: inline !important;
+        float: right !important;
+        line-height: 2.8 !important;
+        &:hover { border-bottom: none; }
+      }
+    }
+
+    .episodes {
+      background: $white;
+
+      .vid-panel {
+        padding-left: 0;
+        padding-right:0;
+        a {
+          color: $lesson-orange;
+        }
+        a:hover, &:visited, &:active {
+          border: none !important;
+          color: $lesson-red !important;
+        }
+      }
+
+      .vid-panel .vid-body {
+        min-height: 50px;
+      }
+      h4 {
+        margin: 1rem;
+        color: inherit;
+      }
+    }
+
   } // /section.season
+
+
+
+.boxshadow {
+  border: 1px solid #edf0f3;
+  border-top: 0;
+  // padding: 10px 0 10px 10px;
+  overflow: hidden;
+  -moz-border-radius-bottomleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  -moz-box-shadow: 0px 2px 7px rgba(0,0,0,0.25);
+  -webkit-box-shadow: 0px 2px 7px rgba(0,0,0,0.25);
+  box-shadow: 0px 2px 7px rgba(0,0,0,0.25);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=180, Color='#333333')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=180, Color='#333333');
+}
+
 
 
 } // /.page-template-page-series
