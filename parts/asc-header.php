@@ -10,7 +10,10 @@
       else if ( is_post_type_archive('lesson') || is_tax('subjects') ) {
         $uri .= get_lessons_page_header();
       }
-      else if ( is_page('Series') ) {
+      else if ( is_singular('lesson') ) {
+        $uri .= get_lessons_page_header();
+      }
+      else if ( is_page('Series') || is_tax('series') || is_singular('episode') ) {
         $uri .= 'series-realdeal.png';
       }
       else if ( is_page('Contact') || is_page('Community') ) {

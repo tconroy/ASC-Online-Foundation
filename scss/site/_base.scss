@@ -39,15 +39,15 @@ section.container a {
 	text-decoration: none;
 	&:hover {
 		color: $lesson-red;
-		border-bottom: 2px solid $lesson-red;
+		// border-bottom: 2px solid $lesson-red;
 	}
 	&:visited {
 		color: darken($lesson-orange, 20%);
-		border-bottom: none;
+		// border-bottom: none;
 		font-weight: normal;
 		&:hover {
 			color: $lesson-red;
-			border-bottom: 2px solid $lesson-red;
+			// border-bottom: 2px solid $lesson-red;
 		}
 	}
 	&:active {
@@ -281,21 +281,28 @@ i.fa-heart.favorited {
       height: 100%;
       font-size: 5rem;
       position: absolute;
-      display: none;
+      display: block;
       color: #FFF;
       text-align: center;
+      background: rgba(0,0,0,0);
+      transition: background 300ms ease-out;
       i {
+        transition: opacity 300ms ease-out;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         color: $lesson-orange;
         left: 0;
         right: 0;
+        opacity: 0;
       }
     }
-    &:hover .overlay {
+    &:hover > .overlay {
       display: block;
       background: rgba(0, 0, 0, .6);
+      i {
+        opacity: 1.0;
+      }
     }
     h5 {
       position: absolute;

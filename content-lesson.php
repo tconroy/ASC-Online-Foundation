@@ -26,7 +26,7 @@
   <li class="vid-panel wow fadeInDown">
     <a href="<?= the_permalink(); ?>">
       <div class="vid-thumbnail">
-        <?= "<img src='http://img.youtube.com/vi/{$vid_code}/hqdefault.jpg' />"?>
+        <?= "<img src='http://img.youtube.com/vi/{$vid_code}/mqdefault.jpg' />"?>
         <span class="overlay"><i class="fa fa-play-circle"></i></span>
         <h5>
           <span><?= $vid_length ?></span>

@@ -21,26 +21,31 @@
                 $count = [
                     'post'   => ( isset($types_count['post'])   ? (int)$types_count['post'] : 0 ),
                     'lesson' => ( isset($types_count['lesson']) ? (int)$types_count['lesson'] : 0 ),
-                    'series' => ( isset($types_count['series']) ? (int)$types_count['series'] : 0 )
+                    'episode' => ( isset($types_count['episode']) ? (int)$types_count['episode'] : 0 )
                 ];
 
+                // set active class to tab with most results
+                $maxs = array_keys($count, max($count));
+                $actives = [ 'post' => '', 'lesson' => '', 'episode' => ''];
+                $actives[ $maxs[0] ] = 'active';
+
                 echo "<ul class='tabs' data-tab>
-                    <li class='tab-title active'><a href='#post-panel'>Blog ({$count['post']})</a></li>
-                    <li class='tab-title'><a href='#lesson-panel'>Lessons ({$count['lesson']})</a></li>
-                    <li class='tab-title'><a href='#series-panel'>Series Episodes ({$count['series']})</a></li>
+                    <li class='tab-title {$actives['post']}'><a href='#post-panel'>Blog ({$count['post']})</a></li>
+                    <li class='tab-title {$actives['lesson']}'><a href='#lesson-panel'>Lessons ({$count['lesson']})</a></li>
+                    <li class='tab-title {$actives['episode']}'><a href='#episode-panel'>Series Episodes ({$count['episode']})</a></li>
                 </ul>
                 <div class='tabs-content'>";
 
 
-                $types = ['post', 'lesson', 'series'];
+                $types = ['post', 'lesson', 'episode'];
                 foreach( $types as $type ){
 
                     // open inner container
-                    $active = ( $type == 'post' ? 'active' : '' );
-                    echo "<div class='content {$active}' id='{$type}-panel'>";
+                    // $active = ( $type == 'post' ? 'active' : '' );
+                    echo "<div class='content {$actives[$type]}' id='{$type}-panel'>";
 
                     // add UL container for videos
-                    if ( $type == 'lesson' || $type == 'series' ) {
+                    if ( $type == 'lesson' || $type == 'episode' ) {
                         echo '<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-equalizer="vidpanel">';
                     }
 
@@ -58,7 +63,7 @@
                     rewind_posts();
 
                     // close inner container
-                    if ( $type == 'lesson' || $type == 'series' ) {
+                    if ( $type == 'lesson' || $type == 'episode' ) {
                         echo '</ul></div>';
                     } else {
                         echo '</div>';

@@ -21,36 +21,63 @@ $(document).ready(function(){
   // load class-specific modules
   $body = $('body');
 
-  // HOME PAGE
+  /**
+   * HOME PAGE
+   */
   if( $body.hasClass('home') ) {
     ASCOHome.init();
   }
-  // CONTACT PAGE
+
+  /**
+   * CONTACT PAGE
+   */
   if ( $body.hasClass('page-id-15') || page_title == 'Contact' ) {
     ASCOContact.init();
   }
-  // FACEBOOK PAGE
+
+  /**
+   * FACEBOOK PAGE
+   */
   if ( $body.hasClass('page-id-33') || page_title == 'Facebook' ) {
     ASCOFacebook.init();
   }
-  // BLOG POST INDEX PAGE
+
+  /**
+   * BLOG
+   */
+  // Blog Index
   if( $body.hasClass('blog') ) {
     ASCOBlogIndex.init();
   }
-  // LESSON POST INDEX PAGE
+  // Blog Archive
+  if ( $body.hasClass('archive') ) {
+    ASCOArchivePage.init();
+  }
+
+  /**
+   * LESSONS
+   */
+  // Lesson Index
   if( $body.hasClass('post-type-archive-lesson') || $body.hasClass('tax-subjects') ) {
     ASCOLessonsIndex.init();
   }
-  // SINGLE LESSON PAGE
+  // Lesson Single
   if ( $body.hasClass('single-lesson') ) {
     ASCOLessonsIndex.initShareBtn();
     ASCOLessonsIndex.initFavoriteBtn();
   }
-  // ARCHIVE PAGE
-  if ( $body.hasClass('archive') ) {
-    ASCOArchivePage.init();
+
+  /**
+   * SERIES
+   */
+   // Series Index
+  if ( $body.hasClass('page-template-page-series') ) {
+    // *****TODO*****
   }
-  // SEARCH PAGE
+
+  /**
+   * SEARCH
+   */
   if ( $body.hasClass('search') ) {
     ASCOSearchPage.init();
     ASCOLessonsIndex.initShareBtn();

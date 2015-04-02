@@ -11,12 +11,12 @@
   $newestEpPermalink = get_the_permalink($newestEp->ID);
   $newestEpPubDate   = get_the_date('', $newestEp->ID);
   $newestEpISODate   = get_the_date('c', $newestEp->ID);
-  $newestEpCode       = explode('=', $newestEpVidUrl)[1];
-  $json_output    = file_get_contents("http://gdata.youtube.com/feeds/api/videos/".$newestEpCode."?v=2&alt=json&prettyprint=true");
-  $json = json_decode($json_output, true);
-  $newestEpViews = $json['entry']['yt$statistics']['viewCount'];
+  $newestEpCode      = explode('=', $newestEpVidUrl)[1];
+  $json_output       = file_get_contents("http://gdata.youtube.com/feeds/api/videos/".$newestEpCode."?v=2&alt=json&prettyprint=true");
+  $json           = json_decode($json_output, true);
+  $newestEpViews  = $json['entry']['yt$statistics']['viewCount'];
   $newestEpLength = date('i:s', mktime(0,0, $json['entry']['media$group']['media$content'][0]['duration']));
-  $newestEpThumb = "http://img.youtube.com/vi/{$newestEpCode}/maxresdefault.jpg";
+  $newestEpThumb  = "http://img.youtube.com/vi/{$newestEpCode}/maxresdefault.jpg";
 
  ?>
 
@@ -27,14 +27,14 @@
   </header>
 
   <div class="body boxshadow"  style="padding-left:0;" data-equalizer="<?= $season.'-cnt' ?>">
-    <!--
-    <div class="small-12 large-6 columns thumbcontainer">
-      <img class="thumb-bg" src="<?= $newestEpThumb ?>">
-    </div> -->
 
     <div class="small-12 large-6 columns cover-bg-container">
     <a href="<?= $newestEpPermalink ?>" title="<?= 'Watch ' . $newestEpTitle ?>">
-      <div class="cover-bg" data-equalizer-watch="<?= $season.'-cnt' ?>" style="background: url('<?= $newestEpThumb ?>') 25% 50% no-repeat; background-size: cover;"></div>
+      <div class="cover-bg" data-equalizer-watch="<?= $season.'-cnt' ?>" style="background: url('<?= $newestEpThumb ?>') 25% 50% no-repeat; background-size: cover;">
+        <span class="overlay">
+          <i class="fa fa-play-circle"></i>
+        </span>
+      </div>
     </a>
     </div>
 
@@ -78,7 +78,7 @@
           <li class="vid-panel boxshadow" data-equalizer-watch="<?= $season.'-eps' ?>">
             <a href="<?= $vid_permalink ?>">
               <div class="vid-thumbnail">
-                <?= "<img src='http://img.youtube.com/vi/{$vid_code}/hqdefault.jpg' />"?>
+                <?= "<img src='http://img.youtube.com/vi/{$vid_code}/mqdefault.jpg' />"?>
                 <span class="overlay"><i class="fa fa-play-circle"></i></span>
                 <h5>
                   <span><?= $vid_length ?></span>

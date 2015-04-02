@@ -40,8 +40,16 @@ if( !function_exists('get_lessons_page_header') ) :
   function get_lessons_page_header() {
     $out = "lesson-";
 
-    if ( isset($_GET['subjects']) ) {
-      switch( $_GET['subjects'] ) {
+    if ( is_archive('lesson') ) {
+      $out .= 'all';
+    }
+    if ( is_tax('subjects') || is_singular('lesson') ) {
+      $out = 'lesson-';
+      global $post;
+      $terms = @wp_get_post_terms($post->ID, 'subjects');
+      $slug = ( isset($_GET['subjects']) ? $_GET['subjects'] : $terms[0]->slug );
+
+      switch( $slug ) {
         case "math":            $out .= "math"; break;
         case "online-learning": $out .= "onlineLearning"; break;
         case "reading":         $out .= "reading"; break;
@@ -49,8 +57,7 @@ if( !function_exists('get_lessons_page_header') ) :
         case "time-management": $out .= "timeManagement"; break;
         case "tutoring":        $out .= "tutoring"; break;
       }
-    } else {
-      $out .= 'all';
+
     }
     return $out.'.png';
   }

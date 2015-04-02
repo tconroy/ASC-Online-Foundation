@@ -53,6 +53,9 @@ section.container[role=document] {
     }
   }
 
+  section.tags {
+    display: inline-block;
+  }
 
   section.lesson-content {
     h3 {
