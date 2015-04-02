@@ -133,7 +133,11 @@ if( !function_exists('init_infinite_scroll') ) :
     while ( have_posts() ) : the_post();
         if ( 'lesson' == get_post_type() ) {
           get_template_part('content', 'lesson');
-        } else {
+        }
+        elseif ( 'episode' == get_post_type() ) {
+          get_template_part('content', 'episode');
+        }
+        else {
           get_template_part( 'content', get_post_format() );
         }
     endwhile;

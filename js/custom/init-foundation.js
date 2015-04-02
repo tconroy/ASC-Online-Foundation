@@ -74,6 +74,10 @@ $(document).ready(function(){
   if ( $body.hasClass('page-template-page-series') ) {
     // *****TODO*****
   }
+  if ( $body.hasClass('single-episode') ) {
+    ASCOLessonsIndex.initShareBtn();
+    ASCOLessonsIndex.initFavoriteBtn();
+  }
 
   /**
    * SEARCH

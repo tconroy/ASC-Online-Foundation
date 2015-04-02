@@ -75,54 +75,71 @@
 	<?php do_action('foundationPress_after_content'); ?>
 
 	<section class="season-episodes">
-		<h3 style="padding-bottom: 0.5rem;border-bottom: 1px solid #33B2E6;margin-bottom: 1.5rem;">Episodes in Season <?php echo "<a style='font-size: 60%;display: block;line-height: 2.5;' class='right' href='{$seasonPermalink}' title=''>+View All</a>";?></h3>
+		<h3>Up Next <?php echo "<a class='right' href='{$seasonPermalink}' title=''>+View All</a>";?></h3>
 
 		<?php
 			$post_object = get_queried_object();
 			// Set fields to get only term ID's to make this more effient
 			$terms = wp_get_post_terms( $post_object->ID, 'series', array( 'fields' => 'ids' ) );
-
-			$orig_post = $post;
-			$orig_terms = wp_get_post_terms($orig_post->ID, 'series');
-			$current_post = $post;
-			$adjPost = [
-				'prev' => [],
-				'next' => []
+			$args = [
+			    'post_type' => $post_object->post_type,
+			    'tax_query' => [
+			       [
+			        'taxonomy' => 'series',
+			        'terms'    => $terms[1],
+			      ]
+			    ],
+			    'posts_per_page' => 2,
+			    'order' => 'DESC',
+			    'no_found_rows' => true,
+			    'suppress_filters' => true,
+			    'date_query' => [
+			      [
+			        'before'    => $post_object->post_date,
+			        'inclusive' => false
+			      ],
+			    ]
 			];
+			$args1 = [
+			    'post_type' => $post_object->post_type,
+			    'tax_query' => [
+			       [
+			        'taxonomy' => 'series',
+			        'terms'    => $terms[1],
+			      ]
+			    ],
+			    'posts_per_page' => 3,
+			    'order' => 'ASC', // CHANDE TO ASC IF NOT CORRECT
+			    /* make query more efficient */
+			    'no_found_rows' => true,
+			    /* dont let filters/pre_get_posts modify query */
+			    'suppress_filters' => true,
+			    'date_query' => [
+			      [
+			        'after'    => $post_object->post_date,
+			        'inclusive' => false
+			      ],
+			    ]
+			];
+			$q1 = new WP_Query( $args );
+			$q2 = new WP_Query( $args1 );
 
-			for($i = 1; $i <= 4; $i++){
-			  $post = get_previous_post(true, '', 'series'); // this uses $post->ID
-			  if ( $post ) {
-			  	$these_terms = wp_get_post_terms($post->ID, 'series');
-					if ( $these_terms[1]->slug === $orig_terms[1]->slug) {
-						array_push( $adjPost['prev'], $post );
-			  	}
-			  }
-			}
-			$post = $current_post;
-
-			for($i = 1; $i <= 4; $i++){
-			  $post = get_next_post(true, '', 'series'); // this uses $post->ID
-			  if ( $post ) {
-					$these_terms = wp_get_post_terms($post->ID, 'series');
-			  	if ( $these_terms[1]->slug === $orig_terms[1]->slug) {
-						array_push( $adjPost['next'], $post );
-			  	}
-			  }
-			}
-			$post = $current_post;
-			$adjPost['prev'] = array_reverse($adjPost['prev']);
 		 ?>
 
-		 <ul id="content" data-equalizer="vidpanel" class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
-				<?php
-					foreach ( $adjPost['next'] as $post ) {
-						get_template_part('content', 'episode');
-					}
-					foreach( $adjPost['prev'] as $post ) {
-						get_template_part('content', 'episode');
-					}
-				 ?>
+		 <ul id="content" data-equalizer="vidpanel" class="small-block-grid-1 medium-block-grid-4 large-block-grid-6 text-center">
+			<?php
+				$q2->posts = array_reverse($q2->posts);
+				foreach($q2->posts as $post) {
+					get_template_part('content', 'episode-nocap');
+				}
+				if ($post_object) {
+					$post = $post_object;
+					get_template_part('content','episode-highlighted-nocap');
+				}
+				foreach($q1->posts as $post) {
+					get_template_part('content', 'episode-nocap');
+				}
+			 ?>
 		 </ul>
 
 	</section>

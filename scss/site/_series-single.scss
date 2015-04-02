@@ -1,0 +1,39 @@
+.lesson-single {
+
+  section.season-episodes {
+    h3 {
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #33B2E6;
+      margin-bottom: 1.5rem;
+      a {
+        font-size: 60%;
+        display: block;
+        line-height: 2.5;
+      }
+    }
+
+    #content{
+      li.vid-panel {
+        opacity: 0.65;
+        &.highlighted, &:hover {
+          opacity: 1.0;
+        }
+        &:hover {
+          .vid-body a h4 {
+            color: $lesson-orange;
+          }
+        }
+        .vid-body {
+          min-height: 50px;
+          h4 {
+            font-size: 85%;
+            &:hover {
+              color: $lesson-orange;
+            }
+          }
+        }
+      }
+    }
+  }
+
+} // .lesson-single
