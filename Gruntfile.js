@@ -123,6 +123,11 @@ module.exports = function(grunt) {
       sass: {
         files: 'scss/**/*.scss',
         tasks: ['sass', 'autoprefixer']
+      },
+
+      js: {
+        files: 'js/custom/*.js',
+        tasks: ['copy', 'concat', 'uglify']
       }
     }
   });

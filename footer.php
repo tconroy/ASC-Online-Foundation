@@ -98,7 +98,7 @@
 
 <?php
   if ( is_page('contact') ) {
-    echo "<script src='https://www.google.com/recaptcha/api.js'></script>";
+    echo "<script src='//www.google.com/recaptcha/api.js?onload=onLoadCallback&render=explicit' async defer></script>";
   }
 ?>
 

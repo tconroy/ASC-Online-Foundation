@@ -12,13 +12,20 @@ var ASCOContact = (function($){
     new WOW().init();
   };
 
+  // called by script in footer
+  var _onCorrectCaptcha = function(field) {
+    console.log(field);
+      $('input[type="submit"]').removeAttr('disabled');
+  };
+
   var init = function(){
     console.log('ASCOContact::init() fired.');
     _initPlugins();
   };
 
   return {
-      init: init
+      init: init,
+      onCorrectCaptcha: _onCorrectCaptcha
   };
 
 })(jQuery);

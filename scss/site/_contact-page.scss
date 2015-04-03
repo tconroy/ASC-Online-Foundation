@@ -1,5 +1,18 @@
 .contact-page .content-section {
   padding-bottom: 4rem;
+
+  input[type="submit"], #RecaptchaField2 {
+    margin-top: 1.5rem;
+  }
+
+  input[type="submit"] {
+    &:disabled {
+      background: $asc-mediumgray !important;
+      color: $white !important;
+      border-color: $asc-mediumgray !important;
+    }
+  }
+
 }
 
 .contact-page table{

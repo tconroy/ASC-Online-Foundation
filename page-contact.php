@@ -1,4 +1,20 @@
 <?php get_header(); ?>
+<script>
+  var onLoadCallback = function() {
+    grecaptcha.render('RecaptchaField1', {
+      'sitekey'  : '6LegnAITAAAAAPI89BqNpuMxXmqGnSBHDrFw-RKW',
+      'callback' : onCaptchaResponse('RecaptchaField1')
+    });
+    grecaptcha.render('RecaptchaField2', {
+      'sitekey'  : '6LegnAITAAAAAPI89BqNpuMxXmqGnSBHDrFw-RKW',
+      'callback' : onCaptchaResponse('RecaptchaField2')
+    });
+  };
+
+  var onCaptchaResponse = function(field) {
+    ASCOContact.onCorrectCaptcha(field);
+  };
+</script>
 <div class="row">
   <div class="small-12 large-12 columns contact-page" role="main">
 
@@ -20,7 +36,7 @@
             <figcaption class="medium-offset-1">
               <div class="row">
                 <div class="small-3 medium-5 large-3 columns">Location</div>
-                <div class="small-9 medium-7 large-9 columns">Monroe Hall, Room 2080 <br> (Above Artesano’s Bakery and Café)</div>
+                <div class="small-9 medium-7 large-9 columns">Monroe Hall, Room 2080 <br> <div class="show-for-large-up">(Above Artesano’s Bakery and Café)</div></div>
               </div>
               <div class="row">
                 <div class="small-3 medium-5 large-3 columns">Phone</div>
@@ -51,25 +67,10 @@
               <small class="error">Message body is required.</small>
             </div>
             <div class="small-12 columns">
-
-              <!-- TODO: CAPTCHA MODAL
-              <a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
-
-              <div id="myModal" class="reveal-modal" data-reveal>
-
-                <h2 class="text-center">Wait!<br><small>We need to make sure you're human first</small></h2>
-                <div class="small-6 small-centered">
-                  <p>
-                    <div class="g-recaptcha" data-sitekey="6LegnAITAAAAAPI89BqNpuMxXmqGnSBHDrFw-RKW"></div>
-                  </p>
-                </div>
-
-                <a class="close-reveal-modal">&#215;</a>
-              </div>-->
-
+              <div id="RecaptchaField1"></div>
             </div>
             <div class="small-12 columns">
-              <input type="submit" value="Submit" class="button btn-holo">
+              <input type="submit" value="Submit" class="button btn-holo" disabled="disabled">
             </div>
           </form>
         </div>
@@ -231,10 +232,11 @@
                   </tbody>
                 </table>
               </div>
+              <div class="small-12 columns">
+                <div id="RecaptchaField2"></div>
+              </div>
               <div class="small-12 columns text-center">
-                <div style="padding-top: 2rem;">
-                  <input type="submit" value="Submit" class="button btn-holo">
-                </div>
+                <input type="submit" value="Submit" class="button btn-holo">
               </div>
             </div>
         </form>
