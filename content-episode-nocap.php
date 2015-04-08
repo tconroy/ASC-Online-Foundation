@@ -19,7 +19,7 @@
     $vid_length     = date('i:s', mktime(0,0, $json['entry']['media$group']['media$content'][0]['duration']));
   ?>
 
-  <li class="vid-panel wow fadeInDown">
+  <li class="vid-panel wow fadeInUp">
     <a href="<?= the_permalink(); ?>">
       <div class="vid-thumbnail">
         <?= "<img src='http://img.youtube.com/vi/{$vid_code}/mqdefault.jpg' />"?>
@@ -31,6 +31,6 @@
       </div>
     </a>
     <div class="vid-body">
-      <a href="<?= the_permalink(); ?>"><h4><?= $vid_title ?></h4></a>
+      <a href="<?= the_permalink(); ?>"><h4 class="headline"><?= $vid_title ?></h4></a>
     </div>
   </li>

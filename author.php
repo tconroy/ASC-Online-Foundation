@@ -12,7 +12,8 @@
 			$screenname = get_the_author_meta('display_name');
 			$desc = get_the_author_meta('description');
 			echo "<h2><small>Profile for </small>{$nicename}</h2>";
-			echo "<img src='".get_avatar_url(get_avatar( get_the_author_meta('ID'), 200 ))."' />";
+			//echo "<img src='".get_avatar_url(get_avatar( get_the_author_meta('ID'), 200 ))."' />";
+			echo get_avatar( get_the_author_meta('ID'), 200, '', $nicename );
 			echo "<h3>({$screenname})</h3>";
 			echo "<p>{$desc}</p>";
 			$social = [

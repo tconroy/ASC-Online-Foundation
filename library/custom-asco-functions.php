@@ -18,6 +18,21 @@ function add_search_box_to_menu( $items, $args ) {
 
     return $items;
 }
+
+
+if( !function_exists('namespace_add_custom_types') ) :
+  function namespace_add_custom_types( $query ) {
+    if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+      $query->set( 'post_type', array(
+       'post', 'nav_menu_item', 'lesson', 'episode'
+      ));
+      return $query;
+    }
+  }
+  add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
+endif;
+
+
 /**
  * Redirects user to browser update page if older than IE9.
  */
@@ -100,11 +115,21 @@ endif;
 /**
  * gets the URI for the author's avatar.
  */
+
 if( !function_exists('get_avatar_url') ) :
   function get_avatar_url($get_avatar){
       preg_match("/src='(.*?)'/i", $get_avatar, $matches);
       return $matches[1];
   }
+endif;
+
+
+if( !function_exists('get_avatar_url_new') ) :
+function get_avatar_url_new($author_id, $size){
+    $get_avatar = get_avatar( $author_id, $size );
+    preg_match("/src='(.*?)'/i", $get_avatar, $matches);
+    return ( $matches[1] );
+}
 endif;
 
 

@@ -98,6 +98,7 @@ module.exports = function(grunt) {
           // include vendor js
           'js/vendor/wow.js',
           'js/vendor/timeago.js',
+          'js/vendor/hoverformore.js',
 
           // Using all of your custom js files
           'js/custom/*.js'
@@ -139,6 +140,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-string-replace');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
   grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'autoprefixer', 'concat', 'uglify']);
   grunt.registerTask('default', ['watch']);

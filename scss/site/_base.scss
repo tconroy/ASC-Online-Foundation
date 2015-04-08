@@ -324,7 +324,19 @@ i.fa-heart.favorited {
 
   .vid-body {
     padding-top: 0.75rem;
-    p { font-size: 90%; }
+    a {
+      width: 100%;
+      display: inline-block;
+    }
+    a h4 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+    p {
+      font-size: 90%;
+    }
 
     // dynamic height of body
     min-height: 115px;

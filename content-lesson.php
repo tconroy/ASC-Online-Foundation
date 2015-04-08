@@ -20,10 +20,13 @@
     $vid_views = $json['entry']['yt$statistics']['viewCount'];
     $vid_length = date('i:s', mktime(0,0, $json['entry']['media$group']['media$content'][0]['duration']));
     $vid_desc_short = substr($vid_desc, 0, strrpos(substr($vid_desc, 0, 90), ' ')) . '...';
+
+    $vid_desc_short = str_replace( ['<p>','</p>'], '', $vid_desc_short );
+
     $vid_download = get_field('lesson_video_attachments');
   ?>
 
-  <li class="vid-panel wow fadeInDown">
+  <li class="vid-panel wow fadeInUp">
     <a href="<?= the_permalink(); ?>">
       <div class="vid-thumbnail">
         <?= "<img src='http://img.youtube.com/vi/{$vid_code}/mqdefault.jpg' />"?>
@@ -35,7 +38,7 @@
       </div>
     </a>
     <div class="vid-body">
-      <a href="<?= the_permalink(); ?>"><h4><?= $vid_title ?></h4></a>
+      <a title="<?= $vid_title ?>" href="<?= the_permalink(); ?>"><h4 class="headline"><?= $vid_title ?></h4></a>
       <p><?= $vid_desc_short ?></p>
       <ul class="inline-list center-text vid-actions">
         <li><a class="favorite disabled" href="#"><i class="fa fa-heart"><span>Favorite</span></i></a></li>

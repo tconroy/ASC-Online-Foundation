@@ -10,7 +10,8 @@
 
 		  <div class="media">
 		    <a class="left media-thumb" href="<?= get_author_posts_url('ID') ?>" rel="author">
-		      <img class="media-object" src="<?= get_avatar_url(get_avatar( get_the_author_meta('ID'), 52 )) ?>" alt="...">
+		      <!--<img class="media-object" src="<?= get_avatar_url(get_avatar(get_the_author_meta('ID'), 52 )) ?>" alt="...">-->
+		      <img class="media-object" src="<?= get_wp_user_avatar_src(get_the_author_meta('ID'), 'thumbnail') ?>" width="52" alt="<?= get_author_name() ?>">
 		    </a>
 		    <div class="media-body">
 		      <h2 class="media-heading">

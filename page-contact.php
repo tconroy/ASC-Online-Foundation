@@ -3,17 +3,32 @@
   var onLoadCallback = function() {
     grecaptcha.render('RecaptchaField1', {
       'sitekey'  : '6LegnAITAAAAAPI89BqNpuMxXmqGnSBHDrFw-RKW',
-      'callback' : onCaptchaResponse('RecaptchaField1')
+      'use_ssl' : false,
+      'callback' : onContactCaptchaResp
     });
     grecaptcha.render('RecaptchaField2', {
       'sitekey'  : '6LegnAITAAAAAPI89BqNpuMxXmqGnSBHDrFw-RKW',
-      'callback' : onCaptchaResponse('RecaptchaField2')
+      'use_ssl' : false,
+      'callback' : onAptCaptchaResp
     });
   };
 
-  var onCaptchaResponse = function(field) {
-    ASCOContact.onCorrectCaptcha(field);
+  var onContactCaptchaResp = function(response) {
+    var $field = $('#RecaptchaField1');
+    $field.data('verified', true);
+    $(document).trigger('verified-event', [$field]);
   };
+  var onAptCaptchaResp = function(response) {
+    var $field = $('#RecaptchaField2');
+    $field.data('verified', true);
+    $(document).trigger('verified-event', [$field]);
+  };
+
+  // var onCaptchaResponse = function(id) {
+  //   // $(id).data('verified', true);
+  //   $(id).data('verified', true);
+  //   $(document).trigger('verified-event', [$(id)]);
+  // };
 </script>
 <div class="row">
   <div class="small-12 large-12 columns contact-page" role="main">
@@ -50,13 +65,13 @@
           </figure>
         </div>
         <div class="small-12 medium-7 medium-pull-5 columns">
-          <form name="" data-abide>
+          <form name="contact-form" action="" data-abide="ajax">
             <div class="small-12 columns">
-              <input type="text" name="name" placeholder="YOUR NAME" required pattern="[a-zA-Z ]+">
+              <input type="text" name="name" placeholder="YOUR NAME" pattern="[a-zA-Z ]+" required>
               <small class="error">Name is required.</small>
             </div>
             <div class="small-12 columns">
-              <input type="email" name="email" placeholder="EMAIL ADDRESS" required pattern="email">
+              <input type="email" name="email" placeholder="EMAIL ADDRESS" pattern="email" required>
               <small class="error">An email address is required.</small>
             </div>
             <div class="small-12 columns">
@@ -67,10 +82,10 @@
               <small class="error">Message body is required.</small>
             </div>
             <div class="small-12 columns">
-              <div id="RecaptchaField1"></div>
+              <div id="RecaptchaField1" class="recaptcha"></div>
             </div>
             <div class="small-12 columns">
-              <input type="submit" value="Submit" class="button btn-holo" disabled="disabled">
+              <input type="submit" value="Submit" class="button btn-holo" disabled="disabled" >
             </div>
           </form>
         </div>
@@ -90,7 +105,7 @@
       </div>
 
       <div class="row">
-        <form data-abide class="small-10 small-offset-1 columns">
+        <form name="appt-request-form" data-abide class="small-10 small-offset-1 columns">
             <div class="row">
               <div class="small-12 medium-6 columns">
                 <label for="fname" class="required">
@@ -233,10 +248,10 @@
                 </table>
               </div>
               <div class="small-12 columns">
-                <div id="RecaptchaField2"></div>
+                <div id="RecaptchaField2" class="recaptcha"></div>
               </div>
               <div class="small-12 columns text-center">
-                <input type="submit" value="Submit" class="button btn-holo">
+                <input type="submit" value="Submit" class="button btn-holo" disabled="disabled">
               </div>
             </div>
         </form>

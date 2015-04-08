@@ -26,19 +26,6 @@ var ASCOLessonsIndex = (function($){
     });
   };
 
-  /*
-  var _bindLazyThumbLoad = function() {
-    $('body').on( 'post-load', function () {
-      // New posts have been added to the page.
-      $("img.lazy-thumb").unveil(null,function(){
-        $(this).load(function() {
-          this.style.opacity = 1;
-          // remove event binding
-          $(this).off('scroll.unveil resize.unveil lookup.unveil');
-        });
-      });
-    });
-  };*/
 
   /**
    * Force Foundation Equalizer to paint a reflow on new lessons loaded via ajax infinite-scroll
@@ -66,6 +53,7 @@ var ASCOLessonsIndex = (function($){
    */
   var _bindPlugin = function() {
     new WOW().init();
+    jQuery('h4.headline').hoverForMore();
   };
 
   var _bindOnFavoriteClick = function() {
@@ -111,7 +99,8 @@ var ASCOLessonsIndex = (function($){
   return {
       init: init,
       initShareBtn: _bindCopyToClipboard,
-      initFavoriteBtn: _bindOnFavoriteClick
+      initFavoriteBtn: _bindOnFavoriteClick,
+      initPlugins: _bindPlugin
   };
 
 })(jQuery);

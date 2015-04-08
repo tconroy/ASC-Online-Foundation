@@ -9,11 +9,7 @@ $('#content').on('DOMNodeInserted', function(e) {
 $(document).ready(function(){
 
   // load Foundation
-  $(document).foundation({
-    equalizer: {
-      equalize_on_stack: true
-    }
-  });
+  $(document).foundation({equalizer: {equalize_on_stack: true}});
 
   // load timeago plugin
   jQuery("span.timeago").timeago();
@@ -65,6 +61,7 @@ $(document).ready(function(){
   if ( $body.hasClass('single-lesson') ) {
     ASCOLessonsIndex.initShareBtn();
     ASCOLessonsIndex.initFavoriteBtn();
+    ASCOLessonsIndex.initPlugins();
   }
 
   /**
@@ -77,6 +74,7 @@ $(document).ready(function(){
   if ( $body.hasClass('single-episode') ) {
     ASCOLessonsIndex.initShareBtn();
     ASCOLessonsIndex.initFavoriteBtn();
+    ASCOLessonsIndex.initPlugins();
   }
 
   /**
@@ -86,5 +84,6 @@ $(document).ready(function(){
     ASCOSearchPage.init();
     ASCOLessonsIndex.initShareBtn();
     ASCOLessonsIndex.initFavoriteBtn();
+    ASCOLessonsIndex.initPlugins();
   }
 });
