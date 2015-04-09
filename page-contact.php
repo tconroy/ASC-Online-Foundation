@@ -23,12 +23,6 @@
     $field.data('verified', true);
     $(document).trigger('verified-event', [$field]);
   };
-
-  // var onCaptchaResponse = function(id) {
-  //   // $(id).data('verified', true);
-  //   $(id).data('verified', true);
-  //   $(document).trigger('verified-event', [$(id)]);
-  // };
 </script>
 <div class="row">
   <div class="small-12 large-12 columns contact-page" role="main">
@@ -42,7 +36,7 @@
         </h2>
       </div> <!-- .section-title -->
 
-      <div class="small-12 medium-10 medium-offset-1 wow fadeInUpBig">
+      <div class="small-12 medium-10 medium-offset-1 wow fadeInUp">
         <div class="small-12 medium-5 medium-push-7 columns">
           <figure>
             <a class="hvr-curl-top-right" href="http://maps.rit.edu/embed.php?zoom=21&lat=43.084790235380794&lng=-77.67410930290224&open=p-24&start=0&rows=10">
@@ -95,7 +89,7 @@
 
     <!-- ======================================= -->
 
-    <div class="row content-section wow fadeInUpBig">
+    <div class="row content-section wow fadeInUp">
 
       <div class="section-title">
         <h2>

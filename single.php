@@ -30,15 +30,23 @@
 		    </div>
 		  </div>
 			<footer>
-				<?php wp_link_pages(array('before' => '<nav id="page-nav"><p>' . __('Pages:', 'FoundationPress'), 'after' => '</p></nav>' )); ?>
-				<p>
+				<div>
 					<?php
 						$tag = get_the_tags();
 						if ($tag) {
 							echo "<p>".the_tags('<p class="tag-lead">Tagged:</p>', ' ')."</p>";
 						}
 					?>
-				</p>
+				</div>
+				<div>
+					<?php if ( function_exists( 'wpsabox_author_box' ) ) echo wpsabox_author_box(); ?>
+				</div>
+				<div>
+        <?php
+					if ( function_exists( "get_yuzo_related_posts" ) ) { get_yuzo_related_posts();
+        	}
+         ?>
+				</div>
 			</footer>
 			<?php do_action('foundationPress_post_before_comments'); ?>
 			<?php comments_template(); ?>

@@ -27,7 +27,16 @@ var ASCOContact = (function($){
           if( data.status === 'success' ) {
             $form[0].reset();
             grecaptcha.reset();
-            alertify.success('Message recieved! Someone will be in touch shortly.');
+            $form.find('input[type="submit"]').attr('disabled', 'disabled');
+            alertify.success(data.message);
+          }
+          if (data.status === 'warning') {
+            alertify.warning(data.message);
+            grecaptcha.reset();
+          }
+          if (data.status === 'error') {
+            alertify.error(data.message + '. Error Message: ' + data.errors);
+            grecaptcha.reset();
           }
         }
       );

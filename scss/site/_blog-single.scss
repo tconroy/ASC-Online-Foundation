@@ -4,4 +4,13 @@ body.single {
 
   }
 
+  .saboxplugin-desc .vcard {
+    padding: 0;
+    border: none;
+    display: block;
+    margin: 0;
+    .fn {
+      font-weight: 100;
+    }
+  }
 }

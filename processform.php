@@ -4,7 +4,7 @@ if ( $_SERVER['REQUEST_METHOD']  === 'POST'
      && isset($_POST['g-recaptcha-response'])  ) {
 
   // setup reCAPTCHA query info
-  $url      = 'http://www.google.com/recaptcha/api/siteverify';
+  $url      = 'https://www.google.com/recaptcha/api/siteverify';
   $secret   = "6LegnAITAAAAAABiioB_CVS1JXsRuBfkCRwiSn9f";
   $response = $_POST['g-recaptcha-response'];
   $data     = ['secret' => $secret, 'response' => $response ];
@@ -20,7 +20,7 @@ if ( $_SERVER['REQUEST_METHOD']  === 'POST'
 
   // only process form on reCAPTCHA success
   if ( ! $result->success ) {
-    echo 'Failed to validate reCAPTCHA';
+    sendResponse('warning', '', 'Failed to validate reCAPTCHA. Please try again.');
   } else {
     // captcha validated, send form
     require_once('swiftmailer/lib/swift_required.php');
@@ -29,13 +29,27 @@ if ( $_SERVER['REQUEST_METHOD']  === 'POST'
     $userEmail   = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $userName    = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $userMessage = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+    $userSendDate = Date('Y-m-d');
+    $body = "
+      <p>A user has sent you a message through the ASC Online Contact Form.</p>
+      <p>
+        <ul>
+          <li><b>Name</b>: {$userName}</li>
+          <li><b>Email</b>: {$userEmail}</li>
+          <li><b>Sent On</b>: {$userSendDate}</li>
+        </ul>
+      </p>
+      <p><b>Message:</b></p>
+      <p>{$userMessage}</p>
+    ";
 
     // Create the message
     $message = Swift_Message::newInstance()
-      ->setSubject('New Message from ASC Online Contact Form')
+      ->setSubject('New Message - Contact Form | ASC Online')
       ->setFrom([$userEmail => $userName])
-      ->setTo(['asc@rit.edu' => 'ASC Online'])
-      ->setBody($userMessage);
+      // ->setTo(['asc@rit.edu' => 'ASC Online'])
+      ->setTo(['tom@thomasconroy.net' => 'ASC Online'])
+      ->setBody($body, 'text/html');
 
     // Create the Transport
     $transport = Swift_MailTransport::newInstance();
@@ -44,19 +58,26 @@ if ( $_SERVER['REQUEST_METHOD']  === 'POST'
     // Send the message
     if ( ! $mailer->send($message, $failures) ) {
       // fail
-      header('Content-type: application/json');
-      $response_array = ['status' => 'error', 'error'=>$failures];
-      echo json_encode($response_array);
+      sendResponse('error', $failures, 'There was a problem sending your message. Please try again.');
     } else {
       // success
-      header('Content-type: application/json');
-      $response_array = ['status' => 'success'];
-      echo json_encode($response_array);
+      sendResponse('success', '', 'Message was sent successfully!');
     }
   }
 } else {
   // server request method != POST or captcha field not set
 }
 
+function sendResponse( $status, $errors, $message ) {
+  $response_array = ['status' => $status];
+  if ( $errors ) {
+    $response_array['errors'] = $errors;
+  }
+  if ( $message ) {
+    $response_array['message'] = $message;
+  }
+  header('Content-Type: application/json');
+  echo json_encode($response_array);
+}
 
 ?>

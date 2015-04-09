@@ -69,11 +69,14 @@ $(document).ready(function(){
    */
    // Series Index
   if ( $body.hasClass('page-template-page-series') ) {
-    // *****TODO*****
+    ASCOLessonsIndex.initPlugins();
   }
   if ( $body.hasClass('single-episode') ) {
     ASCOLessonsIndex.initShareBtn();
     ASCOLessonsIndex.initFavoriteBtn();
+    ASCOLessonsIndex.initPlugins();
+  }
+  if ( $body.hasClass('tax-series') ) {
     ASCOLessonsIndex.initPlugins();
   }
 

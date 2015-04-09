@@ -118,6 +118,17 @@ module.exports = function(grunt) {
       }
     },
 
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'assets/img/',
+          src: ['**/*.{png,jpg,gif}'],
+          dest: 'assets/img/'
+        }]
+      }
+    },
+
     watch: {
       grunt: { files: ['Gruntfile.js'] },
 

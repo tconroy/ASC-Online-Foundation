@@ -333,6 +333,9 @@ i.fa-heart.favorited {
       overflow: hidden;
       text-overflow: ellipsis;
       display: block;
+      &:hover {
+        cursor: pointer;
+      }
     }
     p {
       font-size: 90%;
@@ -353,7 +356,6 @@ i.fa-heart.favorited {
   position: absolute;
 	margin: 0;
 
-
   li {
   	margin-left: 1rem;
   	@media #{$large-up} {
@@ -362,6 +364,9 @@ i.fa-heart.favorited {
   	&:first-child {
   		margin-left: 0;
   	}
+    span {
+      font-family: "Open Sans";
+    }
   }
 
   // button styling

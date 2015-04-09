@@ -75,7 +75,7 @@
             $vid_length = date('i:s', mktime(0,0, $json['entry']['media$group']['media$content'][0]['duration']));
            ?>
 
-          <li class="vid-panel boxshadow" data-equalizer-watch="<?= $season.'-eps' ?>">
+          <li class="vid-panel" data-equalizer-watch="<?= $season.'-eps' ?>">
             <a href="<?= $vid_permalink ?>">
               <div class="vid-thumbnail">
                 <?= "<img src='http://img.youtube.com/vi/{$vid_code}/mqdefault.jpg' />"?>
@@ -87,7 +87,7 @@
               </div>
             </a>
             <div class="vid-body">
-              <a href="<?= $vid_permalink ?>"><h4><?= $vid_title ?></h4></a>
+              <a href="<?= $vid_permalink ?>"><h4 class="headline"><?= $vid_title ?></h4></a>
             </div>
           </li>
         <?php endforeach; ?>
