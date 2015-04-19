@@ -99,7 +99,7 @@
       </div>
 
       <div class="row">
-        <form name="appt-request-form" data-abide class="small-10 small-offset-1 columns">
+        <form name="appt-request-form" data-abide="ajax" class="small-10 small-offset-1 columns">
             <div class="row">
               <div class="small-12 medium-6 columns">
                 <label for="fname" class="required">

@@ -26,29 +26,71 @@ if ( $_SERVER['REQUEST_METHOD']  === 'POST'
     require_once('swiftmailer/lib/swift_required.php');
 
     // form at user info
-    $userEmail     = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $userName      = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-    $userMessage   = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
-    $userSendDate  = Date('Y-m-d');
+    $userFname     = filter_var($_POST['fname'],      FILTER_SANITIZE_STRING);
+    $userLname     = filter_var($_POST['lname'],      FILTER_SANITIZE_STRING);
+    $userUID       = filter_var($_POST['uid'],        FILTER_SANITIZE_NUMBER_INT);
+    $userEmail     = filter_var($_POST['ritemail'],   FILTER_SANITIZE_EMAIL);
+    $userYear      = filter_var($_POST['yearlevel'],  FILTER_SANITIZE_STRING);
+    $userCollege   = filter_var($_POST['college'],    FILTER_SANITIZE_STRING);
+    $userAptReason = filter_var($_POST['apptreason'], FILTER_SANITIZE_STRING);
+
+    $availTues  = format_availability($_POST['Tuesday']);
+    $availWeds  = format_availability($_POST['Wednesday']);
+    $availThurs = format_availability($_POST['Thursday']);
+    $availFri   = format_availability($_POST['Friday']);
+
+    $userSendDate = Date('Y-m-d');
     $userIPAddress = $_SERVER['REMOTE_ADDR'];
+
     $body = "
-      <p>A user has sent you a message through the ASC Online Contact Form.</p>
+      <p>An Appointment Request Form was submitted.</p>
       <p>
+        <h3>Message Info</h3>
         <ul>
-          <li><b>Name</b>: {$userName}</li>
-          <li><b>Email</b>: {$userEmail}</li>
           <li><b>Sent On</b>: {$userSendDate}</li>
           <li><b>From IP Address</b>: {$userIPAddress}</li>
         </ul>
       </p>
-      <p><b>Message:</b></p>
-      <p>{$userMessage}</p>
+      <p>
+        <h3>Student Info</h3>
+        <ul>
+          <li><b>First Name</b>: {$userFname}</li>
+          <li><b>Last Name</b>: {$userLname}</li>
+          <li><b>Student ID #</b>: {$userUID}</li>
+          <li><b>Email</b>: {$userEmail}</li>
+          <li><b>Year Level</b>: {$userYear}</li>
+          <li><b>College</b>: {$userCollege}</li>
+        </ul>
+        <h4>Reason for Appointment:</h4>
+        <p>{$userAptReason}</p>
+      </p>
+      <p>
+        <h3>Availability for Meeting:</h3>
+        <ul>
+          <li>
+            <b>Tuesday</b>
+            {$availTues}
+          </li>
+          <li>
+            <b>Wednesday</b>
+            {$availWeds}
+          </li>
+          <li>
+            <b>Thursday</b>
+            {$availThurs}
+          </li>
+          <li>
+            <b>Friday</b>
+            {$availFri}
+          </li>
+        </ul>
+      </p>
     ";
 
     // Create the message
     $message = Swift_Message::newInstance()
-      ->setSubject('New Contact Form Message | ASC Online')
-      ->setFrom([$userEmail => $userName])
+      ->setSubject('New Appointment Request | ASC Online')
+      ->setFrom([$userEmail => $userFname.' '.$userLname])
       // ->setTo(['asc@rit.edu' => 'ASC Online'])
       ->setTo(['tom@thomasconroy.net' => 'ASC Online'])
       ->setBody($body, 'text/html');
@@ -80,6 +122,16 @@ function sendResponse( $status, $errors, $message ) {
   }
   header('Content-Type: application/json');
   echo json_encode($response_array);
+}
+
+
+function format_availability ( $dayArr ) {
+  $out = "<ul>";
+  foreach ($dayArr as $time) {
+    $out .= "<li>{$time}</li>";
+  }
+  $out .= "</ul>";
+  return $out;
 }
 
 ?>

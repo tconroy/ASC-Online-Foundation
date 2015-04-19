@@ -1,6 +1,6 @@
 <div class="top-bar-container primNavContainer contain-to-grid show-for-medium-up">
     <div class="sticky" data-options="sticky_on: [medium,large]">
-        <nav class="top-bar" id="primary-nav" data-topbar role="navigation" data-options="is_hover: false">
+        <nav class="top-bar" id="primary-nav" data-topbar role="navigation">
             <ul class="title-area">
                 <li class="name">
                     <a href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>" class="hvr-grow">
